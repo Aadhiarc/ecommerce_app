@@ -1,0 +1,19 @@
+<resources>
+    <!---signUp page-->
+    <string name="app_name">ecommerce_app</string>
+    <string name="signUp_header_1">Welcome to online shopping</string>
+    <string name="signUp_username_hint">username</string>
+    <string name="signUp_create_a_pin_hint">create a password</string>
+    <string name="signUp_register_button">Register</string>
+    <string name="signUp_confirm_pin_hint">confirm password</string>
+    <string name="signUp_account_number_hint">email</string>
+    <!---first Page-->
+    <string name="first_page_header">Welcome to online shopping</string>
+    <string name="first_page_login_btn">Login</string>
+    <string name="first_page_signUp_btn">new user ? signUp</string>
+    <!--login page-->
+    <string name="login_page_password_hint">Enter your password</string>
+    <string name="login_page_email_hint">user email</string>
+    <string name="login_page_header">Welcome to online shopping</string>
+
+</resources>
