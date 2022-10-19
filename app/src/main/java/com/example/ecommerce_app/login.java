@@ -6,12 +6,15 @@ import static com.example.ecommerce_app.DbHelper.TABLE_USER_DETAILS;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -23,6 +26,7 @@ public class login extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     DbHelper dbHelper;
     userModel userModel;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,19 +44,38 @@ public class login extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences.Editor editor=sharedPreferences.edit();
                 String user_Email=userEmailEdit.getText().toString();
+                String user_Password=passwordEdit.getText().toString();
                 editor.putString("userEmail",user_Email);
                 editor.commit();
                String loggedUser=sharedPreferences.getString("userEmail","");
                 dbHelper=new DbHelper(login.this);
-                userModel=new userModel();
-                SQLiteDatabase sqLiteDatabase=dbHelper.getReadableDatabase();
-                Cursor cursor=sqLiteDatabase.rawQuery("select * from "+TABLE_USER_DETAILS +"  where " +COLUMN_EMAIL+"=?",new String[]{loggedUser});
-                
+                userModel user = dbHelper.dataGet(user_Email);
+                try{
+                        String userEmail=user.getUserEmail();
+                        String userPassword=user.getPassword();
+                        //validation for login page
+                        if(userEmail.equals(user_Email)&&userPassword.equals(user_Password)){
+                            Toast.makeText(login.this, "login successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(login.this,Recyclerview.class);
+                            startActivity(intent);
+                        }else if(!userEmail.equals(user_Email)){
+                            userEmailLayout.setError("invalid email address");
+                        }else if(!userPassword.equals(user_Password)){
+                            passwordLayout.setError("invalid password");
+                        }else if(!userEmail.equals(user_Email)&&!userPassword.equals(user_Password)){
+                            Toast.makeText(login.this, "invalid credentials", Toast.LENGTH_SHORT).show();
+                        }else if(TextUtils.isEmpty(userEmailEdit.getText().toString())){
+                            userEmailLayout.setError("email field is empty");
+                        }else if(TextUtils.isEmpty(passwordEdit.getText().toString())){
+                            passwordLayout.setError("password field is empty");
+                        }else if(TextUtils.isEmpty(userEmailEdit.getText().toString())&&TextUtils.isEmpty(passwordEdit.getText().toString())){
+                            userEmailLayout.setError("email field is empty");
+                            passwordLayout.setError("password field is empty");
+                        }
 
-
-
-
-
+                }catch (Exception e ){
+                    Toast.makeText(login.this, "user not found", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

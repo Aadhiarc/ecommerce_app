@@ -55,17 +55,20 @@ public class signUp extends AppCompatActivity {
 
 
     boolean  dataWrite() {
-        if (TextUtils.isEmpty(userNameEdit.getText().toString())) {
-            usernameLayout.setError("username should not be empty");
-            return false;
-        } else if(!TextUtils.isEmpty(userNameEdit.getText().toString())) {
-            //regex pattern for userName
-            Pattern pattern = Pattern.compile("^[A-Za-z]{5,29}$");
-            Matcher matcher = pattern.matcher(userNameEdit.getText().toString());
-            boolean regex = matcher.matches();
-            if (!regex) {
-                usernameLayout.setError("minimum five character required(do not use digits or special character; )");
+        if(userNameEdit.hasFocus()){
+            usernameLayout.setErrorEnabled(true);
+            if (TextUtils.isEmpty(userNameEdit.getText().toString())) {
+                usernameLayout.setError("username should not be empty");
                 return false;
+            } else if(!TextUtils.isEmpty(userNameEdit.getText().toString())) {
+                //regex pattern for userName
+                Pattern pattern = Pattern.compile("^[A-Za-z]{5,29}$");
+                Matcher matcher = pattern.matcher(userNameEdit.getText().toString());
+                boolean regex = matcher.matches();
+                if (!regex) {
+                    usernameLayout.setError("minimum five character required(do not use digits or special character; )");
+                    return false;
+                }
             }
         }
         if (TextUtils.isEmpty(emailEdit.getText().toString())) {
@@ -104,7 +107,7 @@ public class signUp extends AppCompatActivity {
             Matcher matcher3 = pattern3.matcher(passwordEdit.getText().toString());
             boolean regex3 = matcher3.matches();
             if (!regex3) {
-                confirmPasswordLayout.setError("required eight character one letter ,one number and one special character");
+                confirmPasswordLayout.setError("required five character one letter ,one number and one special character");
                 return false;
             }
         }
