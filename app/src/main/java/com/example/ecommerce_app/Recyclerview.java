@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.android.volley.Request;
@@ -28,7 +29,7 @@ public class Recyclerview extends AppCompatActivity {
     List<ProductModel> productList;
     Adapter adapter;
     RequestQueue requestQueue;
-
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,20 +66,43 @@ public class Recyclerview extends AppCompatActivity {
                         try {
                             productList=new ArrayList<>();
                             JSONArray jsonArray=response.getJSONArray("products");
+                            String num;
                             for(int i=0;i<jsonArray.length();i++){
                                 JSONObject users=jsonArray.getJSONObject(i);
-                                int num1= Integer.parseInt(getIntent().getStringExtra("smartphones"));
-                                int num2= Integer.parseInt(getIntent().getStringExtra("laptops"));
-                                int num3= Integer.parseInt(getIntent().getStringExtra("fragrances"));
-                                int num4= Integer.parseInt(getIntent().getStringExtra("skincare"));
-                                int num5= Integer.parseInt(getIntent().getStringExtra("groceries"));
-                                int num6= Integer.parseInt(getIntent().getStringExtra("homedecorations"));
-                                if(num1==1){
-
+                                intent =new Intent() ;
+                                Intent intent=getIntent();
+                                num= intent.getStringExtra("smartPhones");
+                                num= intent.getStringExtra("laptops");
+                                num= intent.getStringExtra("fragrances");
+                                num= intent.getStringExtra("skincare");
+                                num= intent.getStringExtra("groceries");
+                                num=  intent.getStringExtra("homedecorations");
+                                System.out.println(num);
+                                if(num.equals("PASS")){
+                                           for(int a=0;a<=5;a++){
+                                               productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
+                                           }
+                                    }else  if(num.equals("PASS")){
+                                    for(int a=6;a<=10;a++){
+                                        productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
+                                    }
+                                    }else if (num.equals("PASS")){
+                                    for(int a=11;a<=15;a++){
+                                        productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
+                                    }
+                                } else if (num.equals("PASS")){
+                                    for(int a=16;a<=20;a++){
+                                        productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
+                                    }
+                                }else if (num.equals("PASS")){
+                                    for(int a=21;a<=25;a++){
+                                        productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
+                                    }
+                                }else if (num.equals("PASS")){
+                                    for(int a=26;a<=30;a++){
+                                        productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
+                                    }
                                 }
-
-
-                                productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
                             }
                             initializeRecyclerview();
 

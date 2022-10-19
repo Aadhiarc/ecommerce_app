@@ -56,7 +56,7 @@ public class login extends AppCompatActivity {
                         //validation for login page
                         if(userEmail.equals(user_Email)&&userPassword.equals(user_Password)){
                             Toast.makeText(login.this, "login successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(login.this,Recyclerview.class);
+                            Intent intent=new Intent(login.this,Filter.class);
                             startActivity(intent);
                         }else if(!userEmail.equals(user_Email)){
                             userEmailLayout.setError("invalid email address");

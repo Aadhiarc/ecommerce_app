@@ -27,7 +27,7 @@ public class Filter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
-                intent.putExtra("smartPhones",1);
+                intent.putExtra("smartPhones","PASS");
                 startActivity(intent);
             }
         });
@@ -35,7 +35,7 @@ public class Filter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
-                intent.putExtra("laptops",2);
+                intent.putExtra("laptops","PASS");
                 startActivity(intent);
             }
         });
@@ -43,7 +43,7 @@ public class Filter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
-                intent.putExtra("fragrances",3);
+                intent.putExtra("fragrances","PASS");
                 startActivity(intent);
             }
         });
@@ -51,7 +51,7 @@ public class Filter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
-                intent.putExtra("skincare",4);
+                intent.putExtra("skincare","PASS");
                 startActivity(intent);
             }
         });
@@ -59,7 +59,7 @@ public class Filter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
-                intent.putExtra("groceries",5);
+                intent.putExtra("groceries","PASS");
                 startActivity(intent);
             }
         });
@@ -67,7 +67,7 @@ public class Filter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
-                intent.putExtra("homedecorations",6);
+                intent.putExtra("homedecorations","PASS");
                 startActivity(intent);
             }
         });
