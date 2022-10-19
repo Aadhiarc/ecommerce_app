@@ -40,10 +40,10 @@ public class Recyclerview extends AppCompatActivity {
 
     private void initializeData() {
         productList=new ArrayList<>();
-        productList.add(new ProductModel("machine","200"));
-        productList.add(new ProductModel("book","400"));
-        productList.add(new ProductModel("perfume","500"));
-        productList.add(new ProductModel("power","600"));
+       // productList.add(new ProductModel("machine","200"));
+       // productList.add(new ProductModel("book","400"));
+        //productList.add(new ProductModel("perfume","500"));
+        //productList.add(new ProductModel("power","600"));
     }
 
     private void initializeRecyclerview() {
@@ -51,7 +51,7 @@ public class Recyclerview extends AppCompatActivity {
         linearLayoutManager=new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter=new Adapter(productList);
+        adapter=new Adapter(productList,this);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -67,9 +67,18 @@ public class Recyclerview extends AppCompatActivity {
                             JSONArray jsonArray=response.getJSONArray("products");
                             for(int i=0;i<jsonArray.length();i++){
                                 JSONObject users=jsonArray.getJSONObject(i);
-                                System.out.println(users.get("title"));
-                                System.out.println(users.get("price"));
-                                productList.add(new ProductModel(users.getString("title"),users.getString("price")));
+                                int num1= Integer.parseInt(getIntent().getStringExtra("smartphones"));
+                                int num2= Integer.parseInt(getIntent().getStringExtra("laptops"));
+                                int num3= Integer.parseInt(getIntent().getStringExtra("fragrances"));
+                                int num4= Integer.parseInt(getIntent().getStringExtra("skincare"));
+                                int num5= Integer.parseInt(getIntent().getStringExtra("groceries"));
+                                int num6= Integer.parseInt(getIntent().getStringExtra("homedecorations"));
+                                if(num1==1){
+
+                                }
+
+
+                                productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
                             }
                             initializeRecyclerview();
 

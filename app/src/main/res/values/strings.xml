@@ -15,5 +15,12 @@
     <string name="login_page_password_hint">Enter your password</string>
     <string name="login_page_email_hint">user email</string>
     <string name="login_page_header">Welcome to online shopping</string>
+    <!--filter page-->
+    <string name="filter_smart_phones_cat">Smart Phones</string>
+    <string name="filter_laptops_cat">Laptops</string>
+    <string name="filter_fragrances_cat">Fragrances</string>
+    <string name="filter_skincare_cat">skincare</string>
+    <string name="filter_groceries_cat">groceries</string>
+    <string name="filter_home_decorations_cat">home decorations</string>
 
 </resources>

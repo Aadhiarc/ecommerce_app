@@ -13,15 +13,15 @@ public class ProductModel {
         public int stock;
         public String brand;
         public String category;
-        public int thumbnail;
+        public String thumbnail;
         public int images;
 
         public ProductModel() {
         }
-         public ProductModel(String title,String price){
+         public ProductModel(String title,String price,String thumbnail){
             this.title=title;
             this.price=price;
-
+            this.thumbnail=thumbnail;
          }
 //        public ProductModel(int id, String title, String description, int price, double discountPercentage, double rating, int stock, String brand, String category, int thumbnail, int images) {
 //            this.id = id;
@@ -110,11 +110,11 @@ public class ProductModel {
             this.category = category;
         }
 
-        public int getThumbnail() {
+        public String getThumbnail() {
             return thumbnail;
         }
 
-        public void setThumbnail(int thumbnail) {
+        public void setThumbnail(String thumbnail) {
             this.thumbnail = thumbnail;
         }
 

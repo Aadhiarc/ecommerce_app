@@ -1,5 +1,6 @@
 package com.example.ecommerce_app;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,14 +10,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
 
     private List<ProductModel> productlist;
+    private Context context;
 
-    public Adapter(List<ProductModel> productModellist){this.productlist =productModellist;}
+    public Adapter(List<ProductModel> productModellist,Context context){
+        this.productlist =productModellist;
+        this.context=context;
+    }
     @NonNull
     @Override
     public Adapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,7 +36,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
           String product_name= productlist.get(position).getTitle();
           String product_price= String.valueOf(productlist.get(position).getPrice());
           holder.product_Name.setText(productlist.get(position).getTitle());
-        holder.product_Price.setText(productlist.get(position).getPrice());
+          holder.product_Price.setText(productlist.get(position).getPrice());
+          Picasso.with(context)
+                .load(productlist.get(position).getThumbnail())
+                .into(holder.product_Image);
+
     }
 
     @Override
@@ -42,11 +53,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
 
         private TextView  product_Name;
         private TextView  product_Price;
+        private ImageView product_Image;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             product_Name=itemView.findViewById(R.id.productName);
             product_Price=itemView.findViewById(R.id.productPrice);
+            product_Image=itemView.findViewById(R.id.productImage);
         }
     }
 }
