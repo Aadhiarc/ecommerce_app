@@ -1,5 +1,7 @@
 package com.example.ecommerce_app;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 
 public class ProductModel {
@@ -14,28 +16,24 @@ public class ProductModel {
         public String brand;
         public String category;
         public String thumbnail;
-        public int images;
+        public JSONArray images;
 
         public ProductModel() {
         }
-         public ProductModel(String title,String price,String thumbnail){
-            this.title=title;
-            this.price=price;
-            this.thumbnail=thumbnail;
-         }
-//        public ProductModel(int id, String title, String description, int price, double discountPercentage, double rating, int stock, String brand, String category, int thumbnail, int images) {
-//            this.id = id;
-//            this.title = title;
-//            this.description = description;
-//            this.price = price;
-//            this.discountPercentage = discountPercentage;
-//            this.rating = rating;
-//            this.stock = stock;
-//            this.brand = brand;
-//            this.category = category;
-//            this.thumbnail = thumbnail;
-//            this.images = images;
-//        }
+
+        public ProductModel(int id, String title, String description, String price, double discountPercentage, double rating, int stock, String brand, String category, String thumbnail, JSONArray images) {
+            this.id = id;
+            this.title = title;
+            this.description = description;
+            this.price = price;
+            this.discountPercentage = discountPercentage;
+            this.rating = rating;
+            this.stock = stock;
+            this.brand = brand;
+            this.category = category;
+            this.thumbnail = thumbnail;
+            this.images = images;
+        }
 
 
         public int getId() {
@@ -118,11 +116,11 @@ public class ProductModel {
             this.thumbnail = thumbnail;
         }
 
-        public int getImages() {
+        public JSONArray getImages() {
             return images;
         }
 
-        public void setImages(int images) {
+        public void setImages(JSONArray images) {
             this.images = images;
         }
 

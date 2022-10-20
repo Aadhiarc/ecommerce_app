@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,16 +27,20 @@ public class Filter extends AppCompatActivity {
         smartPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                GradientDrawable gradientDrawable = new GradientDrawable();
+//                gradientDrawable.setStroke(5,getResources().getColor(R.color.red));
+//                smartPhone.setBackground(gradientDrawable);
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
-                intent.putExtra("smartPhones","PASS");
+                intent.putExtra("cat","smartphones");
                 startActivity(intent);
+
             }
         });
         laptops.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
-                intent.putExtra("laptops","PASS");
+                intent.putExtra("cat","laptops");
                 startActivity(intent);
             }
         });
@@ -43,7 +48,7 @@ public class Filter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
-                intent.putExtra("fragrances","PASS");
+                intent.putExtra("cat","fragrances");
                 startActivity(intent);
             }
         });
@@ -51,7 +56,7 @@ public class Filter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
-                intent.putExtra("skincare","PASS");
+                intent.putExtra("cat","skincare");
                 startActivity(intent);
             }
         });
@@ -59,7 +64,7 @@ public class Filter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
-                intent.putExtra("groceries","PASS");
+                intent.putExtra("cat","groceries");
                 startActivity(intent);
             }
         });
@@ -67,10 +72,11 @@ public class Filter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
-                intent.putExtra("homedecorations","PASS");
+                intent.putExtra("cat","home-decoration");
                 startActivity(intent);
             }
         });
 
     }
+
 }

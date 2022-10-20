@@ -7,6 +7,7 @@
     tools:context=".Filter">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:orientation="vertical"
@@ -17,79 +18,104 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"
         tools:ignore="MissingConstraints">
+
         <LinearLayout
             android:id="@+id/centreLayout"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:orientation="horizontal"
-            android:padding="5dp">
+            android:orientation="horizontal">
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/smartPhone"
-                android:layout_width="130dp"
-                android:layout_height="140dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
                 android:layout_marginEnd="5dp"
-                android:textStyle="bold|italic"
-                android:text="@string/filter_smart_phones_cat"/>
+                android:layout_marginBottom="5dp"
+                android:text="@string/filter_smart_phones_cat"
+                android:background="@drawable/button_stroke_background"
+                android:textStyle="bold|italic" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/laptops"
-                android:layout_width="130dp"
-                android:layout_height="140dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
                 android:layout_marginEnd="5dp"
-                android:textStyle="bold|italic"
-                android:text="@string/filter_laptops_cat"/>
+                android:layout_marginBottom="5dp"
+                android:text="@string/filter_laptops_cat"
+                android:background="@drawable/button_stroke_background"
+                android:textStyle="bold|italic" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/fragrances"
-                android:layout_width="130dp"
-                android:layout_height="140dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
                 android:layout_marginEnd="5dp"
-                android:textStyle="italic|bold"
-                android:text="@string/filter_fragrances_cat"/>
+                android:layout_marginBottom="5dp"
+                android:text="@string/filter_fragrances_cat"
+                android:background="@drawable/button_stroke_background"
+                android:textStyle="italic|bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:orientation="horizontal"
-            android:padding="5dp">
+            android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/skincare"
-                android:layout_width="130dp"
-                android:layout_height="140dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
                 android:layout_marginEnd="5dp"
-                android:textStyle="bold|italic"
-                android:text="@string/filter_skincare_cat"/>
+                android:layout_marginBottom="5dp"
+                android:text="@string/filter_skincare_cat"
+                android:background="@drawable/button_stroke_background"
+                android:textStyle="bold|italic" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/groceries"
-                android:layout_width="130dp"
-                android:layout_height="140dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
                 android:layout_marginEnd="5dp"
-                android:textStyle="italic|bold"
-                android:text="@string/filter_groceries_cat"/>
+                android:layout_marginBottom="5dp"
+                android:text="@string/filter_groceries_cat"
+                android:background="@drawable/button_stroke_background"
+                android:textStyle="italic|bold" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/homeDecorations"
-                android:layout_width="130dp"
-                android:layout_height="140dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="-3.5dp"
                 android:layout_marginEnd="5dp"
-                android:textStyle="bold|italic"
-                android:text="@string/filter_home_decorations_cat"/>
+                android:layout_marginBottom="5dp"
+                android:text="@string/filter_home_decorations_cat"
+                android:background="@drawable/button_stroke_background"
+                android:textStyle="bold|italic" />
         </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categories"
+        android:textSize="24sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,11 @@
 package com.example.ecommerce_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -21,30 +23,51 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Recyclerview extends AppCompatActivity {
+public class Recyclerview extends AppCompatActivity  {
 
 
     RecyclerView recyclerView;
     LinearLayoutManager linearLayoutManager;
-    List<ProductModel> productList;
+    ArrayList<ProductModel> productList;
+    ArrayList<ProductModel>filterList;
     Adapter adapter;
     RequestQueue requestQueue;
-    Intent intent;
+    SearchView searchView;
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
         requestQueue= Volley.newRequestQueue(this);
         jsonParse();
+        searchView=findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchBar(newText);
+                return true;
+            }
+
+
+        });
 
     }
+     // search view bar
+    private void searchBar(String newText) {
+        List<ProductModel> searchViewList=new ArrayList<>();
+        for(ProductModel item:productList){
+            if(item.getTitle().toLowerCase().contains(newText.toLowerCase())){
+                searchViewList.add(item);
+            }
+        }adapter.searchView(searchViewList);
 
-    private void initializeData() {
-        productList=new ArrayList<>();
-       // productList.add(new ProductModel("machine","200"));
-       // productList.add(new ProductModel("book","400"));
-        //productList.add(new ProductModel("perfume","500"));
-        //productList.add(new ProductModel("power","600"));
     }
 
     private void initializeRecyclerview() {
@@ -52,7 +75,7 @@ public class Recyclerview extends AppCompatActivity {
         linearLayoutManager=new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter=new Adapter(productList,this);
+        adapter=new Adapter(filterList,this);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -64,48 +87,21 @@ public class Recyclerview extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            productList=new ArrayList<>();
+                            productList=new ArrayList<ProductModel>();
                             JSONArray jsonArray=response.getJSONArray("products");
-                            String num;
                             for(int i=0;i<jsonArray.length();i++){
-                                JSONObject users=jsonArray.getJSONObject(i);
-                                intent =new Intent() ;
-                                Intent intent=getIntent();
-                                num= intent.getStringExtra("smartPhones");
-                                num= intent.getStringExtra("laptops");
-                                num= intent.getStringExtra("fragrances");
-                                num= intent.getStringExtra("skincare");
-                                num= intent.getStringExtra("groceries");
-                                num=  intent.getStringExtra("homedecorations");
-                                System.out.println(num);
-                                if(num.equals("PASS")){
-                                           for(int a=0;a<=5;a++){
-                                               productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
-                                           }
-                                    }else  if(num.equals("PASS")){
-                                    for(int a=6;a<=10;a++){
-                                        productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
-                                    }
-                                    }else if (num.equals("PASS")){
-                                    for(int a=11;a<=15;a++){
-                                        productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
-                                    }
-                                } else if (num.equals("PASS")){
-                                    for(int a=16;a<=20;a++){
-                                        productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
-                                    }
-                                }else if (num.equals("PASS")){
-                                    for(int a=21;a<=25;a++){
-                                        productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
-                                    }
-                                }else if (num.equals("PASS")){
-                                    for(int a=26;a<=30;a++){
-                                        productList.add(new ProductModel(users.getString("title"),users.getString("price"),users.getString("thumbnail")));
-                                    }
-                                }
+                                JSONObject users = jsonArray.getJSONObject(i);
+                                productList.add(new ProductModel(users.getInt("id"),users.getString("title"),users.getString("description"),users.getString("price"),users.getDouble("discountPercentage"),users.getDouble("rating"),users.getInt("stock"),users.getString("brand"),users.getString("category"),users.getString("thumbnail"), (JSONArray) users.get("images")));
                             }
+                            Intent intent=getIntent();
+                            String category=intent.getStringExtra("cat");
+                           filterList=new ArrayList<ProductModel>();
+                          for(ProductModel item:productList){
+                              if(item.getCategory().equals(category)){
+                                  filterList.add(item);
+                              }
+                          }
                             initializeRecyclerview();
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -119,4 +115,5 @@ public class Recyclerview extends AppCompatActivity {
         requestQueue.add(request);
     }
 
+  
 }
