@@ -139,7 +139,7 @@
             <soup.neumorphism.NeumorphButton
                 android:id="@+id/groceries"
                 style="@style/Widget.Neumorph.Button"
-                android:layout_width="115dp"
+                android:layout_width="@dimen/filter_groceries_cat_button"
                 android:layout_height="115dp"
                 android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
