@@ -189,11 +189,12 @@
 
 
         <soup.neumorphism.NeumorphButton
+            style="@style/Widget.Neumorph.Button"
             android:id="@+id/signUpRegisterBtn"
             android:layout_width="200dp"
             android:layout_height="100dp"
+            android:layout_weight="0.5"
             android:layout_gravity="center"
-            android:background="@drawable/btncolour"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"

@@ -6,10 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".Filter">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/layout_background"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categories"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:textStyle="italic|bold" />
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/layout_background"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,100 +49,129 @@
         <LinearLayout
             android:id="@+id/centreLayout"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <soup.neumorphism.NeumorphButton
                 android:id="@+id/smartPhone"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
+                style="@style/Widget.Neumorph.Button"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
+                android:background="@drawable/button_stroke_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
                 android:text="@string/filter_smart_phones_cat"
-                android:background="@drawable/button_stroke_background"
-                android:textStyle="bold|italic" />
+                android:textAlignment="center"
+                android:textSize="12dp"
+                android:textStyle="bold|italic"
+                app:neumorph_backgroundColor="@color/yellow"
+                app:neumorph_shadowColorDark="@color/black"
+                app:neumorph_shadowColorLight="@color/neo_white" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <soup.neumorphism.NeumorphButton
                 android:id="@+id/laptops"
-                android:layout_width="120dp"
+                style="@style/Widget.Neumorph.Button"
+                android:layout_width="115dp"
                 android:layout_height="120dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_stroke_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
                 android:text="@string/filter_laptops_cat"
-                android:background="@drawable/button_stroke_background"
-                android:textStyle="bold|italic" />
+                android:textAlignment="center"
+                android:textSize="12dp"
+                android:textStyle="bold|italic"
+                app:neumorph_backgroundColor="@color/yellow"
+                app:neumorph_shadowColorDark="@color/black"
+                app:neumorph_shadowColorLight="@color/neo_white" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <soup.neumorphism.NeumorphButton
                 android:id="@+id/fragrances"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:text="@string/filter_fragrances_cat"
+                style="@style/Widget.Neumorph.Button"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
+                android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
-                android:textStyle="italic|bold" />
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/filter_fragrances_cat"
+                android:textAlignment="center"
+                android:textSize="12dp"
+                android:textStyle="italic|bold"
+                app:neumorph_backgroundColor="@color/yellow"
+                app:neumorph_shadowColorDark="@color/black"
+                app:neumorph_shadowColorLight="@color/neo_white" />
         </LinearLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <soup.neumorphism.NeumorphButton
                 android:id="@+id/skincare"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
+                style="@style/Widget.Neumorph.Button"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_stroke_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
                 android:text="@string/filter_skincare_cat"
-                android:background="@drawable/button_stroke_background"
-                android:textStyle="bold|italic" />
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
+                app:neumorph_backgroundColor="@color/yellow"
+                app:neumorph_shadowColorDark="@color/black"
+                app:neumorph_shadowColorLight="@color/neo_white" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <soup.neumorphism.NeumorphButton
                 android:id="@+id/groceries"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
+                style="@style/Widget.Neumorph.Button"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_stroke_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
                 android:text="@string/filter_groceries_cat"
-                android:background="@drawable/button_stroke_background"
-                android:textStyle="italic|bold" />
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:textStyle="italic|bold"
+                app:neumorph_backgroundColor="@color/yellow"
+                app:neumorph_shadowColorDark="@color/black"
+                app:neumorph_shadowColorLight="@color/neo_white" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <soup.neumorphism.NeumorphButton
                 android:id="@+id/homeDecorations"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="-3.5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:text="@string/filter_home_decorations_cat"
+                style="@style/Widget.Neumorph.Button"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
+                android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
-                android:textStyle="bold|italic" />
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/filter_home_decorations_cat"
+                android:textAlignment="center"
+                android:textSize="12dp"
+                android:textStyle="bold|italic"
+                app:neumorph_backgroundColor="@color/yellow"
+                app:neumorph_shadowColorDark="@color/black"
+                app:neumorph_shadowColorLight="@color/neo_white" />
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Categories"
-        android:textSize="24sp"
-        android:textStyle="italic|bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
