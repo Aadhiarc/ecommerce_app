@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Ecommerce_app"
         tools:targetApi="31">
         <activity
-            android:name=".Filter"
+            android:name=".MainActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -43,7 +43,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Filter"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

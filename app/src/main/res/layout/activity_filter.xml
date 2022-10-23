@@ -7,6 +7,22 @@
     tools:context=".Filter">
 
 
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/chip_btm_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/layout_background"
+        app:cnb_menuResource="@menu/bottom_navigation_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:cnb_radius="8dp"
+        android:elevation="10dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -18,7 +34,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintVertical_bias="0.5"
+        android:elevation="10dp">
 
         <TextView
             android:id="@+id/textView2"
@@ -33,7 +50,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="500dp"
         android:layout_margin="20dp"
         android:background="@drawable/layout_background"
         android:gravity="center"
@@ -44,12 +61,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:elevation="10dp">
 
         <LinearLayout
             android:id="@+id/centreLayout"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="160dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="horizontal">
@@ -57,25 +75,27 @@
             <soup.neumorphism.NeumorphButton
                 android:id="@+id/smartPhone"
                 style="@style/Widget.Neumorph.Button"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:background="@drawable/button_stroke_background"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
                 android:text="@string/filter_smart_phones_cat"
-                android:textAlignment="center"
                 android:textSize="12dp"
                 android:textStyle="bold|italic"
                 app:neumorph_backgroundColor="@color/yellow"
                 app:neumorph_shadowColorDark="@color/black"
                 app:neumorph_shadowColorLight="@color/neo_white" />
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"/>
 
             <soup.neumorphism.NeumorphButton
                 android:id="@+id/laptops"
                 style="@style/Widget.Neumorph.Button"
-                android:layout_width="115dp"
-                android:layout_height="120dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
                 android:clickable="true"
@@ -89,11 +109,18 @@
                 app:neumorph_shadowColorDark="@color/black"
                 app:neumorph_shadowColorLight="@color/neo_white" />
 
+       </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
             <soup.neumorphism.NeumorphButton
                 android:id="@+id/fragrances"
                 style="@style/Widget.Neumorph.Button"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
                 android:clickable="true"
@@ -106,23 +133,15 @@
                 app:neumorph_backgroundColor="@color/yellow"
                 app:neumorph_shadowColorDark="@color/black"
                 app:neumorph_shadowColorLight="@color/neo_white" />
-        </LinearLayout>
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"/>
 
             <soup.neumorphism.NeumorphButton
                 android:id="@+id/skincare"
                 style="@style/Widget.Neumorph.Button"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
                 android:clickable="true"
@@ -135,12 +154,19 @@
                 app:neumorph_backgroundColor="@color/yellow"
                 app:neumorph_shadowColorDark="@color/black"
                 app:neumorph_shadowColorLight="@color/neo_white" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <soup.neumorphism.NeumorphButton
+   <soup.neumorphism.NeumorphButton
                 android:id="@+id/groceries"
                 style="@style/Widget.Neumorph.Button"
                 android:layout_width="@dimen/filter_groceries_cat_button"
-                android:layout_height="115dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
                 android:clickable="true"
@@ -154,11 +180,15 @@
                 app:neumorph_shadowColorDark="@color/black"
                 app:neumorph_shadowColorLight="@color/neo_white" />
 
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"/>
+
             <soup.neumorphism.NeumorphButton
                 android:id="@+id/homeDecorations"
                 style="@style/Widget.Neumorph.Button"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
                 android:clickable="true"
