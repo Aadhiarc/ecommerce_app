@@ -100,9 +100,13 @@ public class Recyclerview extends AppCompatActivity  {
                               if(item.getCategory().equals(category)){
                                   filterList.add(item);
                               }
+                              if(category.equals("All_products")){
+                                      filterList.add(item);
+                              }
                           }
-                            initializeRecyclerview();
-                        } catch (JSONException e) {
+                          initializeRecyclerview();
+                        }
+                        catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }

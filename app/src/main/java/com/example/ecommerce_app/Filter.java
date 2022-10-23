@@ -9,8 +9,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Filter extends AppCompatActivity {
      Button smartPhone,laptops,fragrances,skincare,groceries,homeDecorations;
+     ChipNavigationBar chipNavigationBar;
+     Button bot_all_pro,bot_pro,bot_cart;
+     Timer timer;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +30,11 @@ public class Filter extends AppCompatActivity {
         skincare=findViewById(R.id.skincare);
         groceries=findViewById(R.id.groceries);
         homeDecorations=findViewById(R.id.homeDecorations);
-
-
+        chipNavigationBar=findViewById(R.id.chip_btm_nav_bar);
+        timer=new Timer();
         smartPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                GradientDrawable gradientDrawable = new GradientDrawable();
-//                gradientDrawable.setStroke(5,getResources().getColor(R.color.red));
-//                smartPhone.setBackground(gradientDrawable);
                 Intent intent=new Intent(Filter.this,Recyclerview.class);
                 intent.putExtra("cat","smartphones");
                 startActivity(intent);
@@ -76,7 +81,31 @@ public class Filter extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int i) {
+                switch(i){
+                    case R.id.bot_nav_all_products:
+                        timer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                Intent intent=new Intent(Filter.this,Recyclerview.class);
+                                intent.putExtra("cat","All_products");
+                                startActivity(intent);
+                            }
+                        },2000);
+
+                        break;
+                    case R.id.bot_nav_profile:
+                        break;
+                    case R.id.bot_nav_add_cart:
+                        break;
+
+                }
+            }
+        });
+
 
     }
 
-}
+    }

@@ -20,6 +20,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder>  {
 
 
     private List<ProductModel> productlist;
+    ArrayList<ProductModel>filterList;
     private Context context;
 
 
@@ -38,7 +39,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder>  {
     @Override
     public void onBindViewHolder(@NonNull Adapter.viewHolder holder, int position) {
           holder.product_Name.setText(productlist.get(position).getTitle());
-          holder.product_Price.setText(productlist.get(position).getPrice());
+          holder.product_Price.setText("$"+" "+productlist.get(position).getPrice());
           Picasso.with(context)
                 .load(productlist.get(position).getThumbnail())
                 .into(holder.product_Image);
@@ -66,7 +67,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder>  {
             product_Name=itemView.findViewById(R.id.productName);
             product_Price=itemView.findViewById(R.id.productPrice);
             product_Image=itemView.findViewById(R.id.productImage);
-            getAdapterPosition();
         }
     }
 }
