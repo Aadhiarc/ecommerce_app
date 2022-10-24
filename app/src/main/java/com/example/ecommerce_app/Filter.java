@@ -1,8 +1,10 @@
 package com.example.ecommerce_app;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.GradientDrawable;
@@ -24,6 +26,7 @@ public class Filter extends AppCompatActivity {
      Timer timer;
      SharedPreferences sharedPreferences;
      DbHelper dbHelper;
+     AlertDialog.Builder builder;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +102,7 @@ public class Filter extends AppCompatActivity {
                                 intent.putExtra("cat","All_products");
                                 startActivity(intent);
                             }
-                        },2000);
+                        },1000);
                         break;
                     case R.id.bot_nav_profile:
                         timer.schedule(new TimerTask() {
@@ -126,7 +129,7 @@ public class Filter extends AppCompatActivity {
                                         @Override
                                         public void run() {
                                             Intent intent=new Intent(Filter.this,MainActivity.class);
-                                            Toast.makeText(Filter.this, "create an account", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(Filter.this, "create an account to see profile", Toast.LENGTH_SHORT).show();
                                             startActivity(intent);
                                         }
                                     });
@@ -144,4 +147,21 @@ public class Filter extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        builder=new AlertDialog.Builder(this);
+        builder.setTitle("Alert")
+                .setMessage("Do you want to exist the app")
+                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finishAffinity();
+                    }
+                }).setNegativeButton("no", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                }).show();
     }
+}

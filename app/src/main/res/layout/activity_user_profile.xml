@@ -15,10 +15,12 @@
         android:elevation="10dp"
         android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
 
         <androidx.cardview.widget.CardView
             android:layout_width="200dp"
@@ -42,165 +44,187 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="380dp"
-        android:layout_margin="20dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/layout_background"
-        android:elevation="10dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
-        app:layout_constraintVertical_bias="0.166">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="15dp"
-            android:background="@drawable/textview_background"
-            android:elevation="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:text="Name :"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="italic|bold" />
-
-            <TextView
-                android:id="@+id/userName"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginTop="20dp"
-                android:text="text"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold|italic" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="15dp"
-            android:background="@drawable/textview_background"
-            android:elevation="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:text="E-mail :"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="italic|bold" />
-
-            <TextView
-                android:id="@+id/userEmail"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginTop="20dp"
-                android:text="text"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold|italic" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="15dp"
-            android:background="@drawable/textview_background"
-            android:elevation="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="PhoneNumber:"
-                android:textColor="@color/black"
-                android:textSize="23sp"
-                android:textStyle="italic|bold" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phoneNumber"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="Phone Number"
-                app:boxStrokeColor="@color/black"
-                app:counterEnabled="true"
-                app:counterMaxLength="10"
-                app:errorEnabled="true"
-                app:helperTextTextColor="#FF0000"
-                app:hintTextColor="@color/black"
-                tools:layout_editor_absoluteX="68dp"
-                tools:layout_editor_absoluteY="341dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/signUpPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:maxLength="10"
-                    android:padding="12dp"
-                    tools:layout_editor_absoluteX="80dp"
-                    tools:layout_editor_absoluteY="412dp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginBottom="50dp"
-            android:orientation="vertical">
-
-            <soup.neumorphism.NeumorphButton
-                android:id="@+id/changePassword"
-                style="@style/Widget.Neumorph.Button"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="change Password"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                android:textStyle="italic|bold"
-                app:neumorph_backgroundColor="@color/yellow"
-                app:neumorph_shadowColorDark="@color/black"
-                app:neumorph_shadowColorLight="@color/neo_white" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_margin="20dp"
-        android:layout_marginBottom="731dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/profileLogout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent">
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="20dp"
+        android:background="@drawable/layout_background"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:background="@drawable/layout_background"
+            android:elevation="10dp"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="271dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/textview_background"
+                android:elevation="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Name :"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="italic|bold" />
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="15dp"
+                    android:text="text"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/textview_background"
+                android:elevation="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="E-mail :"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="italic|bold" />
+
+                <TextView
+                    android:id="@+id/userEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="15dp"
+                    android:text="text"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="70dp"-->
+            <!--                android:layout_margin="15dp"-->
+            <!--                android:background="@drawable/textview_background"-->
+            <!--                android:elevation="10dp"-->
+            <!--                android:orientation="horizontal">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="150dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="10dp"-->
+            <!--                    android:layout_marginTop="10dp"-->
+            <!--                    android:text="PhoneNumber:"-->
+            <!--                    android:textColor="@color/black"-->
+            <!--                    android:textSize="23sp"-->
+            <!--                    android:textStyle="italic|bold" />-->
+
+            <!--                <com.google.android.material.textfield.TextInputLayout-->
+            <!--                    android:id="@+id/phoneNumber"-->
+            <!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+            <!--                    android:layout_width="150dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_margin="10dp"-->
+            <!--                    android:hint="Phone Number"-->
+            <!--                    app:boxStrokeColor="@color/black"-->
+            <!--                    app:counterEnabled="true"-->
+            <!--                    app:counterMaxLength="10"-->
+            <!--                    app:errorEnabled="true"-->
+            <!--                    app:helperTextTextColor="#FF0000"-->
+            <!--                    app:hintTextColor="@color/black"-->
+            <!--                    tools:layout_editor_absoluteX="68dp"-->
+            <!--                    tools:layout_editor_absoluteY="341dp">-->
+
+            <!--                    <com.google.android.material.textfield.TextInputEditText-->
+            <!--                        android:id="@+id/signUpPassword"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:inputType="number"-->
+            <!--                        android:maxLength="10"-->
+            <!--                        android:padding="12dp"-->
+            <!--                        tools:layout_editor_absoluteX="80dp"-->
+            <!--                        tools:layout_editor_absoluteY="412dp" />-->
+            <!--                </com.google.android.material.textfield.TextInputLayout>-->
+
+            <!--            </LinearLayout>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="50dp"
+                android:orientation="vertical">
+
+                <soup.neumorphism.NeumorphButton
+                    android:id="@+id/changePassword"
+                    style="@style/Widget.Neumorph.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="change Password"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="italic|bold"
+                    app:neumorph_backgroundColor="@color/yellow"
+                    app:neumorph_shadowColorDark="@color/black"
+                    app:neumorph_shadowColorLight="@color/neo_white" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/profileLogout"
+        style="@style/Widget.Neumorph.Button"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="Logout "
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.398"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="0.5"
+        app:neumorph_backgroundColor="@color/yellow"
+        app:neumorph_shadowColorDark="@color/black"
+        app:neumorph_shadowColorLight="@color/white" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

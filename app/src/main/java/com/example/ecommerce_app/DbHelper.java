@@ -23,7 +23,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String createTable= "CREATE TABLE " + TABLE_USER_DETAILS + "(" + COLUMN_ID + " integer primary key autoincrement ," + COLUMN_USER_NAME + " text," + COLUMN_EMAIL + " text," + COLUMN_PASSWORD + " text," + COLUMN_MOBILE_NUMBER + " text," + COLUMN_ADDRESS + " text," + COLUMN_CART + " text)";
+        String createTable= "CREATE TABLE " + TABLE_USER_DETAILS + "(" + COLUMN_ID + " integer primary key autoincrement not null ," + COLUMN_USER_NAME + " text not null," + COLUMN_EMAIL + " text not null," + COLUMN_PASSWORD + " text not null," + COLUMN_MOBILE_NUMBER + " text not null," + COLUMN_ADDRESS + " text not null," + COLUMN_CART + " text not null)";
         sqLiteDatabase.execSQL(createTable);
     }
 
