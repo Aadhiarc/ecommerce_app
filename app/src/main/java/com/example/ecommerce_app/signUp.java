@@ -53,7 +53,6 @@ public class signUp extends AppCompatActivity {
 
     }
 
-
     boolean  dataWrite() {
         if(userNameEdit.hasFocus()){
             usernameLayout.setErrorEnabled(true);

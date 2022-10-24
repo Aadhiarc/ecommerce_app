@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
@@ -17,8 +21,9 @@ import java.util.TimerTask;
 public class Filter extends AppCompatActivity {
      Button smartPhone,laptops,fragrances,skincare,groceries,homeDecorations;
      ChipNavigationBar chipNavigationBar;
-     Button bot_all_pro,bot_pro,bot_cart;
      Timer timer;
+     SharedPreferences sharedPreferences;
+     DbHelper dbHelper;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,14 +94,45 @@ public class Filter extends AppCompatActivity {
                         timer.schedule(new TimerTask() {
                             @Override
                             public void run() {
+
                                 Intent intent=new Intent(Filter.this,Recyclerview.class);
                                 intent.putExtra("cat","All_products");
                                 startActivity(intent);
                             }
                         },2000);
-
                         break;
                     case R.id.bot_nav_profile:
+                        timer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                sharedPreferences=getSharedPreferences("loginUser.db",MODE_PRIVATE);
+                                String loggedUser=sharedPreferences.getString("userEmail","");
+                                dbHelper=new DbHelper(Filter.this);
+                                userModel user = dbHelper.dataGet(loggedUser);
+                                try{
+                                    if(loggedUser.equals(user.getUserEmail())){
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Toast.makeText(Filter.this, "profile", Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(Filter.this,UserProfile.class);
+                                                startActivity(intent);
+                                            }
+                                        });
+
+                                    }
+                                }catch (Exception e){
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Intent intent=new Intent(Filter.this,MainActivity.class);
+                                            Toast.makeText(Filter.this, "create an account", Toast.LENGTH_SHORT).show();
+                                            startActivity(intent);
+                                        }
+                                    });
+                                }
+                            }
+                        },1000);
                         break;
                     case R.id.bot_nav_add_cart:
                         break;

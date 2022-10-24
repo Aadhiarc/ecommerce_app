@@ -43,4 +43,5 @@ dependencies {
     implementation 'com.github.fornewid:neumorphism:0.3.2'
     implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.7.10'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.23'
 }
