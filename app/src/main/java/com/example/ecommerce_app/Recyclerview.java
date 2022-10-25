@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,16 +24,17 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Recyclerview extends AppCompatActivity  {
+public class Recyclerview extends AppCompatActivity implements Adapter.onListListener {
 
 
     RecyclerView recyclerView;
     LinearLayoutManager linearLayoutManager;
     ArrayList<ProductModel> productList;
     ArrayList<ProductModel>filterList;
-    Adapter adapter;
+   public Adapter adapter;
     RequestQueue requestQueue;
     SearchView searchView;
+    Adapter.onListListener onListListener;
 
 
     @SuppressLint("MissingInflatedId")
@@ -75,7 +77,7 @@ public class Recyclerview extends AppCompatActivity  {
         linearLayoutManager=new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter=new Adapter(filterList,this);
+        adapter=new Adapter(filterList,this,onListListener);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -119,5 +121,9 @@ public class Recyclerview extends AppCompatActivity  {
         requestQueue.add(request);
     }
 
-  
+
+    @Override
+    public void onListClick(int position) {
+        Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show();
+    }
 }

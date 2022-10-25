@@ -22,18 +22,23 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder>  {
     private List<ProductModel> productlist;
     ArrayList<ProductModel>filterList;
     private Context context;
+   public onListListener onListListener;
 
 
-    public Adapter(List<ProductModel> productModellist,Context context){
+    public Adapter(List<ProductModel> productModellist,Context context,onListListener onListListener){
         this.productlist =productModellist;
         this.context=context;
+        this.onListListener=onListListener;
 
     }
+
+
+
     @NonNull
     @Override
     public Adapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.product_design,parent,false);
-         return  new viewHolder(view);
+         return  new viewHolder(view,onListListener);
     }
 
     @Override
@@ -57,16 +62,28 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder>  {
         notifyDataSetChanged();
     }
 
-    public  class viewHolder extends RecyclerView.ViewHolder {
+    public  class viewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
         private TextView  product_Name;
         private TextView  product_Price;
         private ImageView product_Image;
+        onListListener onListListener;
 
-        public viewHolder(@NonNull View itemView) {
+        public viewHolder(@NonNull View itemView,onListListener onListListener) {
             super(itemView);
             product_Name=itemView.findViewById(R.id.productName);
             product_Price=itemView.findViewById(R.id.productPrice);
             product_Image=itemView.findViewById(R.id.productImage);
+            this.onListListener=onListListener;
+
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            onListListener.onListClick(getBindingAdapterPosition());
+        }
+    }
+    public interface onListListener{
+        void onListClick(int position);
     }
 }

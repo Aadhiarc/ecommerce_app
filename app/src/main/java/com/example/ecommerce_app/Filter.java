@@ -129,7 +129,7 @@ public class Filter extends AppCompatActivity {
                                         @Override
                                         public void run() {
                                             Intent intent=new Intent(Filter.this,MainActivity.class);
-                                            Toast.makeText(Filter.this, "create an account to see profile", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(Filter.this, "create an account or login to see profile", Toast.LENGTH_SHORT).show();
                                             startActivity(intent);
                                         }
                                     });
