@@ -51,6 +51,12 @@ public class UserProfile extends AppCompatActivity {
 
              }
          });
-
+      change_password.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              Intent intent = new Intent(UserProfile.this,ChangePassword.class);
+              startActivity(intent);
+          }
+      });
     }
 }
