@@ -173,6 +173,7 @@
             <!--            </LinearLayout>-->
 
             <LinearLayout
+                android:id="@+id/fixed_layout"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginBottom="50dp"
@@ -197,7 +198,13 @@
                     app:neumorph_shadowColorLight="@color/neo_white" />
 
             </LinearLayout>
-        </LinearLayout>
+
+
+
+
+                           </LinearLayout>
+
+
 
     </ScrollView>
 
