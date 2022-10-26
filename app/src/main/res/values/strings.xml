@@ -22,5 +22,8 @@
     <string name="filter_skincare_cat">skincare</string>
     <string name="filter_groceries_cat">groceries</string>
     <string name="filter_home_decorations_cat">home decorations</string>
+    <string name="categories_heading">Categories</string>
+    <string name="RecyclerView_searchView">search here</string>
+    <string name="loginPage_login_btn_text">Login</string>
 
 </resources>

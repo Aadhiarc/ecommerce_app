@@ -1,4 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--filter Page-->
     <dimen name="filter_groceries_cat_button">150dp</dimen>
+    <dimen name="Filter_heading_dim">24sp</dimen>
+    <dimen name="Filter_smartphone_btn_width">150dp</dimen>
+    <dimen name="filter_smartphone_btn_height">150dp</dimen>
+    <dimen name="filter_lapton_btn_width">150dp</dimen>
+    <dimen name="filter_laptopd_btn_height">150dp</dimen>
+    <dimen name="filter_fragrance_btn_width">150dp</dimen>
+    <dimen name="filter_fragrances_btn_height">150dp</dimen>
+    <dimen name="filter_skincare_btn_width">150dp</dimen>
+    <dimen name="filter_skincare_btn_height">150dp</dimen>
+    <dimen name="filter_groceries_btn_height">150dp</dimen>
+    <dimen name="filter_homedecorations_btn_width">150dp</dimen>
+    <dimen name="filter_homedecorations_btn_height">150dp</dimen>
+    <!--login Page-->
+    <dimen name="mainPage_heading_size">25sp</dimen>
+    <dimen name="mainPage_login_btn_width">110dp</dimen>
+    <dimen name="mainPage_login_height">70dp</dimen>
+    <dimen name="mainPage_signUp_btn_width">200dp</dimen>
+    <dimen name="mainPage_signUp_btn_height">70dp</dimen>
+    <dimen name="loginPage_heading_Text_size">20dp</dimen>
+    <dimen name="loginPage_heading2_textSize">20dp</dimen>
+    <!--signUp Page-->
+    <dimen name="signUp_userName_edit_width">300dp</dimen>
+    <dimen name="signUp_email_edit_width">300dp</dimen>
+    <dimen name="signUp_createPassword_edit_width">300dp</dimen>
+    <dimen name="sighUp_confirmPassword_width">300dp</dimen>
+    <dimen name="signUp_register_btn_width">200dp</dimen>
+    <dimen name="signUp_register_btn_height">100dp</dimen>
+    <!--product design Page-->
+    <dimen name="product_design_imageView_width">100dp</dimen>
+    <dimen name="product_design_imageView_height">100dp</dimen>
+    <dimen name="product_design_productName_textSize">20dp</dimen>
+    <dimen name="product_design_productPrice_textSize">20dp</dimen>
 </resources>

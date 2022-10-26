@@ -21,7 +21,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:cnb_radius="8dp"
-        android:elevation="10dp"/>
+        android:elevation="10dp"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,8 +42,8 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Categories"
-            android:textSize="24sp"
+            android:text="@string/categories_heading"
+            android:textSize="@dimen/Filter_heading_dim"
             android:textColor="@color/black"
             android:textStyle="italic|bold" />
     </LinearLayout>
@@ -75,8 +76,8 @@
             <soup.neumorphism.NeumorphButton
                 android:id="@+id/smartPhone"
                 style="@style/Widget.Neumorph.Button"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="@dimen/Filter_smartphone_btn_width"
+                android:layout_height="@dimen/filter_smartphone_btn_height"
                 android:background="@drawable/button_stroke_background"
                 android:clickable="true"
                 android:focusable="true"
@@ -94,8 +95,8 @@
             <soup.neumorphism.NeumorphButton
                 android:id="@+id/laptops"
                 style="@style/Widget.Neumorph.Button"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="@dimen/filter_lapton_btn_width"
+                android:layout_height="@dimen/filter_laptopd_btn_height"
                 android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
                 android:clickable="true"
@@ -119,8 +120,8 @@
             <soup.neumorphism.NeumorphButton
                 android:id="@+id/fragrances"
                 style="@style/Widget.Neumorph.Button"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="@dimen/filter_fragrance_btn_width"
+                android:layout_height="@dimen/filter_fragrances_btn_height"
                 android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
                 android:clickable="true"
@@ -140,8 +141,8 @@
             <soup.neumorphism.NeumorphButton
                 android:id="@+id/skincare"
                 style="@style/Widget.Neumorph.Button"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="@dimen/filter_skincare_btn_width"
+                android:layout_height="@dimen/filter_skincare_btn_height"
                 android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
                 android:clickable="true"
@@ -166,7 +167,7 @@
                 android:id="@+id/groceries"
                 style="@style/Widget.Neumorph.Button"
                 android:layout_width="@dimen/filter_groceries_cat_button"
-                android:layout_height="150dp"
+                android:layout_height="@dimen/filter_groceries_btn_height"
                 android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
                 android:clickable="true"
@@ -187,8 +188,8 @@
             <soup.neumorphism.NeumorphButton
                 android:id="@+id/homeDecorations"
                 style="@style/Widget.Neumorph.Button"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="@dimen/filter_homedecorations_btn_width"
+                android:layout_height="@dimen/filter_homedecorations_btn_height"
                 android:layout_gravity="center"
                 android:background="@drawable/button_stroke_background"
                 android:clickable="true"

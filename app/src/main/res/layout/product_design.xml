@@ -11,11 +11,12 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:elevation="10dp">
         <ImageView
             android:id="@+id/productImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/product_design_imageView_width"
+            android:layout_height="@dimen/product_design_imageView_height"
             android:layout_marginLeft="5dp"
             android:layout_margin="10dp"/>
         <TextView
@@ -24,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/productImage"
             android:text="productName"
-            android:textSize="20dp"
+            android:textSize="@dimen/product_design_productName_textSize"
             android:layout_marginLeft="6dp"
             android:textStyle="italic|bold"
             android:textColor="@color/black"
@@ -35,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/productName"
             android:text="price"
-            android:textSize="20dp"
+            android:textSize="@dimen/product_design_productPrice_textSize"
             android:layout_marginLeft="6dp"
             android:textStyle="italic|bold"
             android:layout_marginTop="10dp"

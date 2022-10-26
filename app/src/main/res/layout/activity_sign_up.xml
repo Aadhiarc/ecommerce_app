@@ -52,7 +52,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/usernameLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="300dp"
+            android:layout_width="@dimen/signUp_userName_edit_width"
             android:layout_height="wrap_content"
             android:hint="@string/signUp_username_hint"
             app:boxStrokeColor="@color/black"
@@ -82,7 +82,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/signUp_email_Layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="300dp"
+            android:layout_width="@dimen/signUp_email_edit_width"
             android:layout_height="wrap_content"
             android:hint="@string/signUp_account_number_hint"
             app:boxStrokeColor="@color/black"
@@ -112,7 +112,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/signUp_password_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="300dp"
+            android:layout_width="@dimen/signUp_createPassword_edit_width"
             android:layout_height="wrap_content"
             android:hint="@string/signUp_create_a_pin_hint"
             app:boxStrokeColor="@color/black"
@@ -144,7 +144,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/confirm_password_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="300dp"
+            android:layout_width="@dimen/sighUp_confirmPassword_width"
             android:layout_height="wrap_content"
             android:hint="@string/signUp_confirm_pin_hint"
             app:boxStrokeColor="@color/black"
@@ -191,8 +191,8 @@
         <soup.neumorphism.NeumorphButton
             style="@style/Widget.Neumorph.Button"
             android:id="@+id/signUpRegisterBtn"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/signUp_register_btn_width"
+            android:layout_height="@dimen/signUp_register_btn_height"
             android:layout_weight="0.5"
             android:layout_gravity="center"
             android:clickable="true"

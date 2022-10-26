@@ -5,7 +5,8 @@
        android:id="@+id/bot_nav_all_products"
        android:title="All products"
        android:icon="@drawable/ic_all_products"
-       app:cnb_backgroundColor="@color/yellow"/>
+       app:cnb_backgroundColor="@color/yellow"
+       />
 
     <item
         android:id="@+id/bot_nav_profile"

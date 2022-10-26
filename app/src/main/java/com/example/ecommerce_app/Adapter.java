@@ -1,7 +1,6 @@
 package com.example.ecommerce_app;
 
 import android.content.Context;
-import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,22 +12,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder>  {
 
 
     private List<ProductModel> productlist;
-    ArrayList<ProductModel>filterList;
+    public recyclerViewInterface recyclerViewInterface;
     private Context context;
-   public onListListener onListListener;
 
 
-    public Adapter(List<ProductModel> productModellist,Context context,onListListener onListListener){
+
+    public Adapter(List<ProductModel> productModellist,Context context,recyclerViewInterface recyclerViewInterface){
         this.productlist =productModellist;
         this.context=context;
-        this.onListListener=onListListener;
+        this.recyclerViewInterface=recyclerViewInterface;
 
     }
 
@@ -38,7 +36,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder>  {
     @Override
     public Adapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.product_design,parent,false);
-         return  new viewHolder(view,onListListener);
+         return  new viewHolder(view,recyclerViewInterface);
     }
 
     @Override
@@ -62,28 +60,30 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder>  {
         notifyDataSetChanged();
     }
 
-    public  class viewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
+    public  class viewHolder extends RecyclerView.ViewHolder {
         private TextView  product_Name;
         private TextView  product_Price;
         private ImageView product_Image;
-        onListListener onListListener;
 
-        public viewHolder(@NonNull View itemView,onListListener onListListener) {
+
+        public viewHolder(@NonNull View itemView, com.example.ecommerce_app.recyclerViewInterface recyclerViewInterface) {
             super(itemView);
             product_Name=itemView.findViewById(R.id.productName);
             product_Price=itemView.findViewById(R.id.productPrice);
             product_Image=itemView.findViewById(R.id.productImage);
-            this.onListListener=onListListener;
 
-            itemView.setOnClickListener(this);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(recyclerViewInterface!=null){
+                        recyclerViewInterface.onItemClick(getAdapterPosition());
+                    }
+
+                }
+            });
         }
 
-        @Override
-        public void onClick(View view) {
-            onListListener.onListClick(getBindingAdapterPosition());
-        }
+
     }
-    public interface onListListener{
-        void onListClick(int position);
-    }
+
 }

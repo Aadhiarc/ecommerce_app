@@ -17,7 +17,9 @@
        app:layout_constraintTop_toTopOf="parent"
        tools:ignore="MissingConstraints"
        android:padding="8dp"
-       app:queryHint="search here"/>
+       app:queryHint="@string/RecyclerView_searchView"
+       android:background="@drawable/layout_background"
+       android:layout_margin="20dp"/>
 
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/recyclerView"

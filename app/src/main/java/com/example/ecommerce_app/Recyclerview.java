@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -24,7 +25,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Recyclerview extends AppCompatActivity implements Adapter.onListListener {
+public class Recyclerview extends AppCompatActivity implements recyclerViewInterface {
 
 
     RecyclerView recyclerView;
@@ -34,7 +35,6 @@ public class Recyclerview extends AppCompatActivity implements Adapter.onListLis
    public Adapter adapter;
     RequestQueue requestQueue;
     SearchView searchView;
-    Adapter.onListListener onListListener;
 
 
     @SuppressLint("MissingInflatedId")
@@ -73,11 +73,12 @@ public class Recyclerview extends AppCompatActivity implements Adapter.onListLis
     }
 
     private void initializeRecyclerview() {
+
         recyclerView=findViewById(R.id.recyclerView);
         linearLayoutManager=new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter=new Adapter(filterList,this,onListListener);
+        adapter=new Adapter(filterList,this,this);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -123,7 +124,10 @@ public class Recyclerview extends AppCompatActivity implements Adapter.onListLis
 
 
     @Override
-    public void onListClick(int position) {
-        Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show();
+    public void onItemClick(int position) {
+
+        Toast.makeText(this, String.valueOf(position), Toast.LENGTH_SHORT).show();
+
+
     }
 }

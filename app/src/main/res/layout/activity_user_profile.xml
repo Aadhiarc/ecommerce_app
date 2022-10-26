@@ -82,7 +82,6 @@
                     android:layout_marginTop="15dp"
                     android:text="Name :"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
                     android:textStyle="italic|bold" />
 
                 <TextView
