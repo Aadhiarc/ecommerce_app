@@ -32,6 +32,7 @@ public class Recyclerview extends AppCompatActivity implements recyclerViewInter
     LinearLayoutManager linearLayoutManager;
     ArrayList<ProductModel> productList;
     ArrayList<ProductModel>filterList;
+    ArrayList<ProductModel>profileList;
    public Adapter adapter;
     RequestQueue requestQueue;
     SearchView searchView;
@@ -127,6 +128,33 @@ public class Recyclerview extends AppCompatActivity implements recyclerViewInter
     public void onItemClick(int position) {
 
         Toast.makeText(this, String.valueOf(position), Toast.LENGTH_SHORT).show();
+        profileList=new ArrayList<ProductModel>();
+        for(ProductModel item:productList){
+            if(position==item.getId()-1){
+                profileList.add(item);
+                String productTitle=profileList.get(0).getTitle();
+                String productPrice=profileList.get(0).getPrice();
+               String productImages= String.valueOf(profileList.get(0).getImages());
+                String productCategory=profileList.get(0).getCategory();
+               String productBrand= profileList.get(0).getBrand();
+                String productDescription=profileList.get(0).getDescription();
+               String discountPercentage= String.valueOf(profileList.get(0).getDiscountPercentage());
+               String ratings= String.valueOf(profileList.get(0).getRating());
+               String stock= String.valueOf(profileList.get(0).getStock());
+               Intent intent =new Intent(Recyclerview.this,Productprofile.class);
+               intent.putExtra("product_Title",productTitle);
+               intent.putExtra("product_Price",productPrice);
+               intent.putExtra("product_Images",productImages);
+               intent.putExtra("product_Category",productCategory);
+               intent.putExtra("product_Brand",productBrand);
+               intent.putExtra("product_Description",productDescription);
+               intent.putExtra("discount_Percentage",discountPercentage);
+               intent.putExtra("ratings",ratings);
+               intent.putExtra("stock",stock);
+               startActivity(intent);
+            }
+
+        }
 
 
     }

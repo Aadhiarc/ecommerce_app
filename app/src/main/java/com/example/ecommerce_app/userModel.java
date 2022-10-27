@@ -19,8 +19,9 @@ public class userModel {
         this.cart = cart;
     }
 
-    public userModel() {
-    }
+userModel(){
+
+}
 
     public int getId() {
         return id;

@@ -23,7 +23,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String createTable= "CREATE TABLE " + TABLE_USER_DETAILS + "(" + COLUMN_ID + " integer primary key autoincrement not null ," + COLUMN_USER_NAME + " text not null," + COLUMN_EMAIL + " text not null," + COLUMN_PASSWORD + " text not null," + COLUMN_MOBILE_NUMBER + " text not null," + COLUMN_ADDRESS + " text not null," + COLUMN_CART + " text not null)";
+        String createTable= "CREATE TABLE " + TABLE_USER_DETAILS + "(" + COLUMN_ID + " integer primary key autoincrement  ," + COLUMN_USER_NAME + " text ," + COLUMN_EMAIL + " text ," + COLUMN_PASSWORD + " text ," + COLUMN_MOBILE_NUMBER + " text ," + COLUMN_ADDRESS + " text ," + COLUMN_CART + " text )";
         sqLiteDatabase.execSQL(createTable);
     }
 
@@ -45,7 +45,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public userModel dataGet(String user_Email){
         SQLiteDatabase sqLiteDatabase=this.getReadableDatabase();
          Cursor cursor=sqLiteDatabase.rawQuery("select * from "+TABLE_USER_DETAILS +"  where " +COLUMN_EMAIL+"=?",new String[]{user_Email});
-         while(cursor.moveToNext()){
+         while (cursor.moveToNext()){
              userModel=new userModel(cursor.getInt(0), cursor.getString(1),cursor.getString(2), cursor.getString(3),  cursor.getString(4), cursor.getString(5), cursor.getString(6));
          }
 

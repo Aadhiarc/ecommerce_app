@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toast"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Productprofile">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/layout_background"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="331dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
+        app:layout_constraintVertical_bias="0.5"
+        android:background="@drawable/layout_background">
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                    android:text="Category :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brand :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rating :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Discount Percentage :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stock : :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/productName_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/productDescription_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/price_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/category_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Category :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/brand_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brand :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/rating_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rating :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/dicountpercentage_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Discount Percentage :"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/stock_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stock : "
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

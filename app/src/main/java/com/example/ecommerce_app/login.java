@@ -49,7 +49,7 @@ public class login extends AppCompatActivity {
                 editor.commit();
                String loggedUser=sharedPreferences.getString("userEmail","");
                 dbHelper=new DbHelper(login.this);
-                userModel user = dbHelper.dataGet(user_Email);
+                userModel user = dbHelper.dataGet(loggedUser);
                 try{
                         String userEmail=user.getUserEmail();
                         String userPassword=user.getPassword();

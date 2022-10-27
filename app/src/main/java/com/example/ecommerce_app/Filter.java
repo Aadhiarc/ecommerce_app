@@ -111,8 +111,8 @@ public class Filter extends AppCompatActivity {
                                 sharedPreferences=getSharedPreferences("loginUser.db",MODE_PRIVATE);
                                 String loggedUser=sharedPreferences.getString("userEmail","");
                                 dbHelper=new DbHelper(Filter.this);
-                                userModel user = dbHelper.dataGet(loggedUser);
                                 try{
+                                    userModel user = dbHelper.dataGet(loggedUser);
                                     if(loggedUser.equals(user.getUserEmail())){
                                         runOnUiThread(new Runnable() {
                                             @Override
