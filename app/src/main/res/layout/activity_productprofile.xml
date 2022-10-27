@@ -7,50 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".Productprofile">
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout8"
+    <ScrollView
+        android:id="@+id/scrollView4"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_margin="20dp"
-        android:background="@drawable/layout_background"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
-
-
-    </LinearLayout>
-
-    <ScrollView
-        android:id="@+id/scrollView3"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/layout_background"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
-        app:layout_constraintVertical_bias="0.5">
+       >
 
         <LinearLayout
             android:id="@+id/linearLayout9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginBottom="104dp"
-            android:background="@drawable/layout_background"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
-            app:layout_constraintVertical_bias="0.5">
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="373dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -62,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="Name :" />
+                    android:text="@string/product_profile_name_tag" />
 
                 <TextView
                     android:id="@+id/productName_profile"
@@ -83,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:text="Description :" />
+                    android:text="@string/product_profile_description_tag" />
 
                 <TextView
                     android:id="@+id/productDescription_profile"
@@ -102,16 +79,14 @@
                 <TextView
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
-
                     android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:text="Price :" />
+                    android:text="@string/product_profile_price_tag" />
 
                 <TextView
                     android:id="@+id/price_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:text="Price :" />
@@ -129,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:text="Category :" />
+                    android:text="@string/product_profile_category_tag" />
 
                 <TextView
                     android:id="@+id/category_profile"
@@ -150,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:text="Brand :" />
+                    android:text="@string/product_profile_brand_tag" />
 
                 <TextView
                     android:id="@+id/brand_profile"
@@ -171,10 +146,9 @@
                 <TextView
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
-
                     android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:text="Rating :" />
+                    android:text="@string/product_profile_rating_tag" />
 
                 <TextView
                     android:id="@+id/rating_profile"
@@ -199,13 +173,12 @@
 
                     android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:text="Discount Percentage :" />
+                    android:text="@string/product_profile_dicount_percentage_tag" />
 
                 <TextView
                     android:id="@+id/dicountpercentage_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:text="Discount Percentage :" />
@@ -224,7 +197,7 @@
 
                     android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:text="Stock : " />
+                    android:text="@string/product_profile_stock_tag" />
 
                 <TextView
                     android:id="@+id/stock_profile"
@@ -241,7 +214,32 @@
 
         </LinearLayout>
 
-
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/layout_background"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+
+       <androidx.viewpager.widget.ViewPager
+           android:id="@+id/viewPager"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_margin="@dimen/product_profile_view_pager_layout_margin">
+
+       </androidx.viewpager.widget.ViewPager>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

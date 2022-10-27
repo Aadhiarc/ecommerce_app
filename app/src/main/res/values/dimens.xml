@@ -34,4 +34,7 @@
     <dimen name="product_design_imageView_height">100dp</dimen>
     <dimen name="product_design_productName_textSize">20dp</dimen>
     <dimen name="product_design_productPrice_textSize">20dp</dimen>
+    <!--user Profile Page-->
+    <dimen name="user_profile_corner_radius">200dp</dimen>
+    <dimen name="product_profile_view_pager_layout_margin">20dp</dimen>
 </resources>

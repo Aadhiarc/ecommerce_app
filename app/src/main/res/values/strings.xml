@@ -25,5 +25,20 @@
     <string name="categories_heading">Categories</string>
     <string name="RecyclerView_searchView">search here</string>
     <string name="loginPage_login_btn_text">Login</string>
+    <!--userProfile  page-->
+    <string name="user_profile_name_tag">Name :</string>
+    <string name="user_profile_emai_tag">E-mail :</string>
+    <string name="user_profile_change_password_btn">change Password</string>
+    <string name="user_profile_logout_btn_name">Logout</string>
+    <!--productProfile  page-->
+    <string name="product_profile_name_tag">Name :</string>
+    <string name="product_profile_description_tag">Description :</string>
+    <string name="product_profile_price_tag">Price :</string>
+    <string name="product_profile_category_tag">Category :</string>
+    <string name="product_profile_brand_tag">Brand :</string>
+    <string name="product_profile_rating_tag">Rating :</string>
+    <string name="product_profile_dicount_percentage_tag">Discount Percentage :</string>
+    <string name="product_profile_stock_tag">Stock :</string>
+
 
 </resources>

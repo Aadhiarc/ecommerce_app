@@ -148,6 +148,12 @@ public class Filter extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        chipNavigationBar.setItemSelected(chipNavigationBar.getSelectedItemId(),false);
+    }
+
+    @Override
     public void onBackPressed() {
         builder=new AlertDialog.Builder(this);
         builder.setTitle("Alert")

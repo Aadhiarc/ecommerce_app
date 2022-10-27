@@ -22,6 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,8 @@ public class Recyclerview extends AppCompatActivity implements recyclerViewInter
    public Adapter adapter;
     RequestQueue requestQueue;
     SearchView searchView;
+    List<String> imagesList = new ArrayList<String>();
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -127,14 +130,21 @@ public class Recyclerview extends AppCompatActivity implements recyclerViewInter
     @Override
     public void onItemClick(int position) {
 
-        Toast.makeText(this, String.valueOf(position), Toast.LENGTH_SHORT).show();
         profileList=new ArrayList<ProductModel>();
         for(ProductModel item:productList){
             if(position==item.getId()-1){
                 profileList.add(item);
                 String productTitle=profileList.get(0).getTitle();
                 String productPrice=profileList.get(0).getPrice();
-               String productImages= String.valueOf(profileList.get(0).getImages());
+//                for(int i=0; i< profileList.get(0).getImages().length(); i++){
+//                    try {
+//                        imagesList.add(profileList.get(0).getImages().getString(i));
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//                int size = imagesList.size();
+                JSONArray productImages = profileList.get(0).getImages();
                 String productCategory=profileList.get(0).getCategory();
                String productBrand= profileList.get(0).getBrand();
                 String productDescription=profileList.get(0).getDescription();
@@ -144,7 +154,7 @@ public class Recyclerview extends AppCompatActivity implements recyclerViewInter
                Intent intent =new Intent(Recyclerview.this,Productprofile.class);
                intent.putExtra("product_Title",productTitle);
                intent.putExtra("product_Price",productPrice);
-               intent.putExtra("product_Images",productImages);
+               intent.putExtra("product_Images", String.valueOf(productImages));
                intent.putExtra("product_Category",productCategory);
                intent.putExtra("product_Brand",productBrand);
                intent.putExtra("product_Description",productDescription);

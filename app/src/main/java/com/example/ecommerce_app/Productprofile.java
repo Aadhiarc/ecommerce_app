@@ -1,6 +1,8 @@
 package com.example.ecommerce_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -25,6 +27,7 @@ import java.util.ArrayList;
 public class Productprofile extends AppCompatActivity {
     RequestQueue requestQueue;
     TextView name,price,category,brand,description,percentage,ratings,stock;
+    ViewPager viewPager;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,15 +37,14 @@ public class Productprofile extends AppCompatActivity {
                 Intent intent = getIntent();
                 String title=intent.getStringExtra("product_Title");
                 String price_intent=intent.getStringExtra("product_Price");
-                String images=intent.getStringExtra("product_Images");
+                String stringimages=intent.getStringExtra("product_Images");
                 String category_intent=intent.getStringExtra("product_Category");
                 String brand_intent=intent.getStringExtra("product_Brand");
                 String description_intent=intent.getStringExtra("product_Description");
                 String percentage_intent=intent.getStringExtra("discount_Percentage");
                 String ratings_intent=intent.getStringExtra("ratings");
                 String stock_intent=intent.getStringExtra("stock");
-
-                name=findViewById(R.id.productName_profile);
+        name=findViewById(R.id.productName_profile);
                 price=findViewById(R.id.price_profile);
                 category=findViewById(R.id.category_profile);
                 brand=findViewById(R.id.brand_profile);
@@ -50,7 +52,14 @@ public class Productprofile extends AppCompatActivity {
                 percentage=findViewById(R.id.dicountpercentage_profile);
                 ratings=findViewById(R.id.rating_profile);
                 stock=findViewById(R.id.stock_profile);
-
+                viewPager=findViewById(R.id.viewPager);
+        try {
+            JSONArray images=new JSONArray(stringimages);
+            imageViewAadpter imageViewAadpter=new imageViewAadpter(this,images);
+            viewPager.setAdapter(imageViewAadpter);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
                 name.setText(title);
                 price.setText(price_intent);
                 category.setText(category_intent);

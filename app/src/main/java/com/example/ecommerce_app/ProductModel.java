@@ -2,8 +2,6 @@ package com.example.ecommerce_app;
 
 import org.json.JSONArray;
 
-import java.util.ArrayList;
-
 public class ProductModel {
 
         public int id;
@@ -18,8 +16,7 @@ public class ProductModel {
         public String thumbnail;
         public JSONArray images;
 
-        public ProductModel() {
-        }
+
 
         public ProductModel(int id, String title, String description, String price, double discountPercentage, double rating, int stock, String brand, String category, String thumbnail, JSONArray images) {
             this.id = id;
@@ -125,13 +122,4 @@ public class ProductModel {
         }
 
 }
- class Root{
-    public ArrayList<ProductModel> getProducts() {
-        return products;
-    }
 
-    public ArrayList<ProductModel> products;
-    public int total;
-    public int skip;
-    public int limit;
-}
