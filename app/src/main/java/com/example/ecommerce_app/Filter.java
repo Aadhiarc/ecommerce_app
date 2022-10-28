@@ -138,8 +138,13 @@ public class Filter extends AppCompatActivity {
                         },1000);
                         break;
                     case R.id.bot_nav_add_cart:
-                        Intent intent = new Intent(Filter.this,Addcart.class);
-                        startActivity(intent);
+                        timer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                Intent intent = new Intent(Filter.this,Addcart.class);
+                                startActivity(intent);
+                            }
+                        },2000);
                         break;
 
                 }

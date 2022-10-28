@@ -51,7 +51,7 @@ public class CustomcartAdapter extends BaseAdapter {
         TextView product_Price=view.findViewById(R.id.productPrice_cart);
        ImageView product_Image= view.findViewById(R.id.productImage_cart);
       product_Name.setText(cartviewModels.get(i).getTitle());
-      product_Price.setText(cartviewModels.get(i).getPrice());
+      product_Price.setText("$"+" "+cartviewModels.get(i).getPrice());
       Picasso.with(context).load(cartviewModels.get(i).getImage()).into(product_Image);
         return view;
     }

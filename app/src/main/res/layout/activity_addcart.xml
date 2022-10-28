@@ -6,14 +6,75 @@
     android:layout_height="match_parent"
     tools:context=".Addcart">
 
+
+    <LinearLayout
+        android:id="@+id/linearLayout10"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/layout_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/cartlistview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Cart products :"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="italic|bold" />
+
+    </LinearLayout>
+
+
     <ListView
         android:id="@+id/cartlistview"
         android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_height="500dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10"
+        app:layout_constraintVertical_bias="0.5"
+        android:layout_margin="10dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout11"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/layout_background"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/cartlistview">
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/Buy_btn"
+            style="@style/Widget.Neumorph.Button"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:background="@drawable/button_stroke_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="Buy"
+            android:textSize="12dp"
+            android:textStyle="bold|italic"
+            app:neumorph_backgroundColor="@color/yellow"
+            app:neumorph_shadowColorDark="@color/black"
+            app:neumorph_shadowColorLight="@color/neo_white" />
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

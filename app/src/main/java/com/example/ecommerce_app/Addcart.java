@@ -20,6 +20,7 @@ import java.util.ArrayList;
 public class Addcart extends AppCompatActivity {
     ListView listView;
     DbHelper dbHelper;
+    String val;
     SharedPreferences sharedPreferences;
     ArrayList<CartviewModel> cartviewModels;
     AlertDialog.Builder builder;
@@ -43,6 +44,7 @@ public class Addcart extends AppCompatActivity {
             String name=cursor.getString(1);
             String price=cursor.getString(2);
             String images=cursor.getString(3);
+            System.out.println(cursor.getString(4));
            cartviewModels.add(new CartviewModel(name,price,images));
 
         }for(CartviewModel item:cartviewModels) {
@@ -53,7 +55,9 @@ public class Addcart extends AppCompatActivity {
          listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
              @Override
              public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                 String position=String.valueOf(i);
+                String position=String.valueOf(i);
+                 val = cartviewModels.get(i).getTitle();
+                 System.out.println(cartviewModels.get(i).getTitle());
                  builder=new AlertDialog.Builder(Addcart.this);
                  builder.setTitle("Alert")
                          .setMessage("Do you want to delete the product")
@@ -61,7 +65,9 @@ public class Addcart extends AppCompatActivity {
                              @Override
                              public void onClick(DialogInterface dialogInterface, int i) {
                                  SQLiteDatabase sqLiteDatabase=dbHelper.getWritableDatabase();
-                                 sqLiteDatabase.delete("cartTable","id=?",new String[]{position});
+                                 sqLiteDatabase.delete("cartTable","product_name=?",new String[]{val});
+                                 Intent intent1=new Intent(Addcart.this,Addcart.class);
+                                 startActivity(intent1);
                              }
                          }).setNegativeButton("no", new DialogInterface.OnClickListener() {
                              @Override
@@ -71,7 +77,11 @@ public class Addcart extends AppCompatActivity {
                          }).show();
              }
          });
+    }
 
-
+    @Override
+    public void onBackPressed() {
+       Intent intent=new Intent(Addcart.this,Filter.class);
+       startActivity(intent);
     }
 }
