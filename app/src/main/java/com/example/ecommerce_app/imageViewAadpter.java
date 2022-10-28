@@ -30,12 +30,13 @@ public class imageViewAadpter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view==object;
+        return view == object;
     }
+
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        ImageView imageView=new ImageView(context);
+        ImageView imageView = new ImageView(context);
         try {
             Picasso.with(context)
                     .load((String.valueOf(imageurls.get(position)))).into(imageView);
@@ -43,7 +44,7 @@ public class imageViewAadpter extends PagerAdapter {
             e.printStackTrace();
         }
         container.addView(imageView);
-        return  imageView;
+        return imageView;
     }
 
     @Override

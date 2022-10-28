@@ -20,13 +20,13 @@ public class CustomcartAdapter extends BaseAdapter {
     LayoutInflater layoutInflater;
     ArrayList<CartviewModel> cartviewModels;
 
-    public CustomcartAdapter( ArrayList<CartviewModel> cartviewModels,Context context,String product_name, String product_price, String product_image) {
+    public CustomcartAdapter(ArrayList<CartviewModel> cartviewModels, Context context, String product_name, String product_price, String product_image) {
         this.product_name = product_name;
         this.product_price = product_price;
         this.product_image = product_image;
-        this.context=context;
-        this.cartviewModels=cartviewModels;
-        layoutInflater=LayoutInflater.from(context);
+        this.context = context;
+        this.cartviewModels = cartviewModels;
+        layoutInflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -46,13 +46,13 @@ public class CustomcartAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        view=layoutInflater.inflate(R.layout.activity_customcartview,null);
-        TextView product_Name=view.findViewById(R.id.productName_cart);
-        TextView product_Price=view.findViewById(R.id.productPrice_cart);
-       ImageView product_Image= view.findViewById(R.id.productImage_cart);
-      product_Name.setText(cartviewModels.get(i).getTitle());
-      product_Price.setText("$"+" "+cartviewModels.get(i).getPrice());
-      Picasso.with(context).load(cartviewModels.get(i).getImage()).into(product_Image);
+        view = layoutInflater.inflate(R.layout.activity_customcartview, null);
+        TextView product_Name = view.findViewById(R.id.productName_cart);
+        TextView product_Price = view.findViewById(R.id.productPrice_cart);
+        ImageView product_Image = view.findViewById(R.id.productImage_cart);
+        product_Name.setText(cartviewModels.get(i).getTitle());
+        product_Price.setText("$" + " " + cartviewModels.get(i).getPrice());
+        Picasso.with(context).load(cartviewModels.get(i).getImage()).into(product_Image);
         return view;
     }
 }

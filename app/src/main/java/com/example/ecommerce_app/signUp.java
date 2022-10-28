@@ -3,9 +3,9 @@ package com.example.ecommerce_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.ContentValues;
+
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -19,8 +19,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class signUp extends AppCompatActivity {
-    TextInputEditText userNameEdit,emailEdit,passwordCreate,passwordEdit;
-    TextInputLayout usernameLayout,emailLayout,passwordLayout,confirmPasswordLayout;
+    TextInputEditText userNameEdit, emailEdit, passwordCreate, passwordEdit;
+    TextInputLayout usernameLayout, emailLayout, passwordLayout, confirmPasswordLayout;
     Button registerBtn;
     DbHelper dbHelper;
 
@@ -29,37 +29,37 @@ public class signUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        userNameEdit=findViewById(R.id.username);
-        usernameLayout=findViewById(R.id.usernameLayout);
-        emailEdit=findViewById(R.id.signUpEmail);
-        emailLayout=findViewById(R.id.signUp_email_Layout);
-        passwordEdit=findViewById(R.id.confirm_password);
-        passwordCreate=findViewById(R.id.signUpPassword);
-        passwordLayout=findViewById(R.id.signUp_password_layout);
-        confirmPasswordLayout=findViewById(R.id.confirm_password_layout);
-        registerBtn=findViewById(R.id.signUpRegisterBtn);
+        userNameEdit = findViewById(R.id.username);
+        usernameLayout = findViewById(R.id.usernameLayout);
+        emailEdit = findViewById(R.id.signUpEmail);
+        emailLayout = findViewById(R.id.signUp_email_Layout);
+        passwordEdit = findViewById(R.id.confirm_password);
+        passwordCreate = findViewById(R.id.signUpPassword);
+        passwordLayout = findViewById(R.id.signUp_password_layout);
+        confirmPasswordLayout = findViewById(R.id.confirm_password_layout);
+        registerBtn = findViewById(R.id.signUpRegisterBtn);
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                   if(dataWrite()==true){
-                       dbHelper=new DbHelper(signUp.this);
-                       dbHelper.dataWrite(userNameEdit.getText().toString(),emailEdit.getText().toString(),passwordEdit.getText().toString());
-                       Toast.makeText(signUp.this, "registration done successfully", Toast.LENGTH_SHORT).show();
-                       Intent intent = new Intent(signUp.this,login.class);
-                       startActivity(intent);
-                   }
+                if (dataWrite() == true) {
+                    dbHelper = new DbHelper(signUp.this);
+                    dbHelper.dataWrite(userNameEdit.getText().toString(), emailEdit.getText().toString(), passwordEdit.getText().toString());
+                    Toast.makeText(signUp.this, "registration done successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(signUp.this, login.class);
+                    startActivity(intent);
+                }
             }
         });
 
     }
 
-    boolean  dataWrite() {
-        if(userNameEdit.hasFocus()){
+    boolean dataWrite() {
+        if (userNameEdit.hasFocus()) {
             usernameLayout.setErrorEnabled(true);
             if (TextUtils.isEmpty(userNameEdit.getText().toString())) {
                 usernameLayout.setError("username should not be empty");
                 return false;
-            } else if(!TextUtils.isEmpty(userNameEdit.getText().toString())) {
+            } else if (!TextUtils.isEmpty(userNameEdit.getText().toString())) {
                 //regex pattern for userName
                 Pattern pattern = Pattern.compile("^[A-Za-z]{5,29}$");
                 Matcher matcher = pattern.matcher(userNameEdit.getText().toString());
@@ -73,7 +73,7 @@ public class signUp extends AppCompatActivity {
         if (TextUtils.isEmpty(emailEdit.getText().toString())) {
             emailLayout.setError("email should not be empty");
             return false;
-        } else if(!TextUtils.isEmpty(emailEdit.getText().toString())) {
+        } else if (!TextUtils.isEmpty(emailEdit.getText().toString())) {
             //regex pattern for email
             Pattern pattern1 = Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$");
             Matcher matcher1 = pattern1.matcher(emailEdit.getText().toString());
@@ -86,7 +86,7 @@ public class signUp extends AppCompatActivity {
         if (TextUtils.isEmpty(passwordCreate.getText().toString())) {
             passwordLayout.setError("password should not be empty");
             return false;
-        } else if(!TextUtils.isEmpty(passwordCreate.getText().toString())) {
+        } else if (!TextUtils.isEmpty(passwordCreate.getText().toString())) {
             //regex pattern for create password
             //Minimum eight characters, at least one letter, one number and one special character:
             Pattern pattern2 = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{5,10}$");
@@ -100,7 +100,7 @@ public class signUp extends AppCompatActivity {
         if (TextUtils.isEmpty(passwordEdit.getText().toString())) {
             confirmPasswordLayout.setError("confirm password should not be empty");
             return false;
-        } else if(!TextUtils.isEmpty(passwordEdit.getText().toString())){
+        } else if (!TextUtils.isEmpty(passwordEdit.getText().toString())) {
             //regex pattern for confirm password
             Pattern pattern3 = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{5,10}$");
             Matcher matcher3 = pattern3.matcher(passwordEdit.getText().toString());

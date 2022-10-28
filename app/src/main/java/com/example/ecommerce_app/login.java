@@ -1,15 +1,12 @@
 package com.example.ecommerce_app;
 
-import static com.example.ecommerce_app.DbHelper.COLUMN_EMAIL;
-import static com.example.ecommerce_app.DbHelper.TABLE_USER_DETAILS;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,8 +17,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class login extends AppCompatActivity {
-    TextInputEditText userEmailEdit,passwordEdit;
-    TextInputLayout userEmailLayout,passwordLayout;
+    TextInputEditText userEmailEdit, passwordEdit;
+    TextInputLayout userEmailLayout, passwordLayout;
     Button loginBtn;
     SharedPreferences sharedPreferences;
     DbHelper dbHelper;
@@ -32,48 +29,48 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        userEmailEdit=findViewById(R.id.login_username);
-        userEmailLayout=findViewById(R.id.login_usernameLayout);
-        passwordEdit=findViewById(R.id.login_accountPassword);
-        passwordLayout=findViewById(R.id.login_accountPasswordLayout);
-        loginBtn=findViewById(R.id.loginbtn);
+        userEmailEdit = findViewById(R.id.login_username);
+        userEmailLayout = findViewById(R.id.login_usernameLayout);
+        passwordEdit = findViewById(R.id.login_accountPassword);
+        passwordLayout = findViewById(R.id.login_accountPasswordLayout);
+        loginBtn = findViewById(R.id.loginbtn);
         //creating a shared preferences to store the user details until logout
-        sharedPreferences=getSharedPreferences("loginUser.db",MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("loginUser.db", MODE_PRIVATE);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor=sharedPreferences.edit();
-                String user_Email=userEmailEdit.getText().toString();
-                String user_Password=passwordEdit.getText().toString();
-                editor.putString("userEmail",user_Email);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                String user_Email = userEmailEdit.getText().toString();
+                String user_Password = passwordEdit.getText().toString();
+                editor.putString("userEmail", user_Email);
                 editor.commit();
-               String loggedUser=sharedPreferences.getString("userEmail","");
-                dbHelper=new DbHelper(login.this);
+                String loggedUser = sharedPreferences.getString("userEmail", "");
+                dbHelper = new DbHelper(login.this);
                 userModel user = dbHelper.dataGet(loggedUser);
-                try{
-                        String userEmail=user.getUserEmail();
-                        String userPassword=user.getPassword();
-                        //validation for login page
-                        if(userEmail.equals(user_Email)&&userPassword.equals(user_Password)){
-                            Toast.makeText(login.this, "login successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(login.this,Filter.class);
-                            startActivity(intent);
-                        }else if(!userEmail.equals(user_Email)){
-                            userEmailLayout.setError("invalid email address");
-                        }else if(!userPassword.equals(user_Password)){
-                            passwordLayout.setError("invalid password");
-                        }else if(!userEmail.equals(user_Email)&&!userPassword.equals(user_Password)){
-                            Toast.makeText(login.this, "invalid credentials", Toast.LENGTH_SHORT).show();
-                        }else if(TextUtils.isEmpty(userEmailEdit.getText().toString())){
-                            userEmailLayout.setError("email field is empty");
-                        }else if(TextUtils.isEmpty(passwordEdit.getText().toString())){
-                            passwordLayout.setError("password field is empty");
-                        }else if(TextUtils.isEmpty(userEmailEdit.getText().toString())&&TextUtils.isEmpty(passwordEdit.getText().toString())){
-                            userEmailLayout.setError("email field is empty");
-                            passwordLayout.setError("password field is empty");
-                        }
+                try {
+                    String userEmail = user.getUserEmail();
+                    String userPassword = user.getPassword();
+                    //validation for login page
+                    if (userEmail.equals(user_Email) && userPassword.equals(user_Password)) {
+                        Toast.makeText(login.this, "login successfully", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(login.this, Filter.class);
+                        startActivity(intent);
+                    } else if (!userEmail.equals(user_Email)) {
+                        userEmailLayout.setError("invalid email address");
+                    } else if (!userPassword.equals(user_Password)) {
+                        passwordLayout.setError("invalid password");
+                    } else if (!userEmail.equals(user_Email) && !userPassword.equals(user_Password)) {
+                        Toast.makeText(login.this, "invalid credentials", Toast.LENGTH_SHORT).show();
+                    } else if (TextUtils.isEmpty(userEmailEdit.getText().toString())) {
+                        userEmailLayout.setError("email field is empty");
+                    } else if (TextUtils.isEmpty(passwordEdit.getText().toString())) {
+                        passwordLayout.setError("password field is empty");
+                    } else if (TextUtils.isEmpty(userEmailEdit.getText().toString()) && TextUtils.isEmpty(passwordEdit.getText().toString())) {
+                        userEmailLayout.setError("email field is empty");
+                        passwordLayout.setError("password field is empty");
+                    }
 
-                }catch (Exception e ){
+                } catch (Exception e) {
                     Toast.makeText(login.this, "user not found", Toast.LENGTH_SHORT).show();
                 }
 
