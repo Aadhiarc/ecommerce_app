@@ -26,6 +26,7 @@ public class DbHelper extends SQLiteOpenHelper {
         String createTable = "CREATE TABLE " + TABLE_USER_DETAILS + "(" + COLUMN_ID + " integer primary key autoincrement  ," + COLUMN_USER_NAME + " text ," + COLUMN_EMAIL + " text ," + COLUMN_PASSWORD + " text ," + COLUMN_MOBILE_NUMBER + " text ," + COLUMN_ADDRESS + " text ," + COLUMN_CART + " text )";
         sqLiteDatabase.execSQL(createTable);
         sqLiteDatabase.execSQL("create table cartTable(email text,product_name text,product_price,product_thumbnail text,id integer primary key autoincrement)");
+        sqLiteDatabase.execSQL("create table buyTable(userName text,userEmail text,userPhoneNumber text,userAddress text)");
     }
 
     @Override
