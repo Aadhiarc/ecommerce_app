@@ -57,11 +57,9 @@ public class Recyclerview extends AppCompatActivity implements recyclerViewInter
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchBar(newText);
+               // searchBar(newText);
                 return true;
             }
-
-
         });
 
     }
@@ -136,17 +134,10 @@ public class Recyclerview extends AppCompatActivity implements recyclerViewInter
                 profileList.add(item);
                 String productTitle=profileList.get(0).getTitle();
                 String productPrice=profileList.get(0).getPrice();
-//                for(int i=0; i< profileList.get(0).getImages().length(); i++){
-//                    try {
-//                        imagesList.add(profileList.get(0).getImages().getString(i));
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//                int size = imagesList.size();
                 JSONArray productImages = profileList.get(0).getImages();
                 String productCategory=profileList.get(0).getCategory();
                String productBrand= profileList.get(0).getBrand();
+               String productThumb=profileList.get(0).getThumbnail();
                 String productDescription=profileList.get(0).getDescription();
                String discountPercentage= String.valueOf(profileList.get(0).getDiscountPercentage());
                String ratings= String.valueOf(profileList.get(0).getRating());
@@ -161,6 +152,7 @@ public class Recyclerview extends AppCompatActivity implements recyclerViewInter
                intent.putExtra("discount_Percentage",discountPercentage);
                intent.putExtra("ratings",ratings);
                intent.putExtra("stock",stock);
+               intent.putExtra("thumbnail",productThumb);
                startActivity(intent);
             }
 
