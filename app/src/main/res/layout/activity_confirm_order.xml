@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context=".ConfirmOrder">
+
+    <LinearLayout
+        android:id="@+id/linearLayout13"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/layout_background"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/submitBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameLayout_Buy"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/signUp_userName_edit_width"
+            android:layout_height="wrap_content"
+            android:hint="@string/signUp_username_hint"
+            app:boxStrokeColor="@color/black"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperTextTextColor="#FF0000"
+            app:hintTextColor="@color/black"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="120dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username_Buy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_person_dark"
+                android:inputType="text"
+                android:maxLength="15"
+                android:padding="12dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/user_email_Layout_Buy"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/signUp_email_edit_width"
+            android:layout_height="wrap_content"
+            android:hint="@string/signUp_account_number_hint"
+            app:boxStrokeColor="@color/black"
+            app:counterEnabled="true"
+            app:counterMaxLength="30"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperTextTextColor="#FF0000"
+            app:hintTextColor="@color/black"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="230dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userEmail_Buy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_person_dark"
+                android:inputType="text"
+                android:maxLength="30"
+                android:padding="12dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/House_NUMBER_LAYOUT"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/signUp_createPassword_edit_width"
+            android:layout_height="wrap_content"
+            android:hint="House Number"
+            app:boxStrokeColor="@color/black"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperTextTextColor="#FF0000"
+            app:hintTextColor="@color/black"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="341dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/HouseNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:maxLength="15"
+                android:padding="12dp"
+                tools:layout_editor_absoluteX="80dp"
+                tools:layout_editor_absoluteY="412dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/street_layout_Buy"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/sighUp_confirmPassword_width"
+            android:layout_height="wrap_content"
+            android:hint="Street-name"
+            app:boxStrokeColor="@color/black"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperTextTextColor="#FF0000"
+            app:hintTextColor="@color/black"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="453dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/street_Buy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLength="15"
+                android:padding="12dp"
+                tools:layout_editor_absoluteX="80dp"
+                tools:layout_editor_absoluteY="412dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pincode_layout_Buy"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/signUp_userName_edit_width"
+            android:layout_height="wrap_content"
+            android:hint="pin-code"
+            app:boxStrokeColor="@color/black"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperTextTextColor="#FF0000"
+            app:hintTextColor="@color/black"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="120dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pincode_BUY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="15"
+                android:padding="12dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/State_layout_Buy"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/signUp_email_edit_width"
+            android:layout_height="wrap_content"
+            android:hint="State"
+            app:boxStrokeColor="@color/black"
+            app:counterEnabled="true"
+            app:counterMaxLength="30"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperTextTextColor="#FF0000"
+            app:hintTextColor="@color/black"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="230dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/state_Buy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLength="30"
+                android:padding="12dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/mobileNumber_Layout_Buy"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/signUp_userName_edit_width"
+            android:layout_height="wrap_content"
+            android:hint="Phone number"
+            app:boxStrokeColor="@color/black"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperTextTextColor="#FF0000"
+            app:hintTextColor="@color/black"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="120dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mobileNumber_Buy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_person_dark"
+                android:inputType="number"
+                android:maxLength="10"
+                android:padding="12dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/submitBtn"
+        style="@style/Widget.Neumorph.Button"
+        android:layout_width="@dimen/signUp_register_btn_width"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.5"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="Submit"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout13"
+        app:layout_constraintVertical_bias="0.5"
+        app:neumorph_backgroundColor="@color/yellow"
+        app:neumorph_shadowColorDark="@color/black"
+        app:neumorph_shadowColorLight="@color/white"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

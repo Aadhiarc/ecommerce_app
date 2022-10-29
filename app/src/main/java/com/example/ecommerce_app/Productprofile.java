@@ -26,7 +26,7 @@ import soup.neumorphism.NeumorphButton;
 public class Productprofile extends AppCompatActivity {
     TextView name, price, category, brand, description, percentage, ratings, stock;
     ViewPager viewPager;
-    NeumorphButton addToCart;
+    NeumorphButton addToCart,buyBtn;
     SharedPreferences sharedPreferences;
     DbHelper dbHelper;
     AlertDialog.Builder builder;
@@ -57,6 +57,7 @@ public class Productprofile extends AppCompatActivity {
         stock = findViewById(R.id.stock_profile);
         addToCart = findViewById(R.id.addtocartbtn);
         viewPager = findViewById(R.id.viewPager);
+        buyBtn=findViewById(R.id.Buy);
         try {
             JSONArray images = new JSONArray(stringimages);
             imageViewAadpter imageViewAadpter = new imageViewAadpter(this, images);
@@ -105,6 +106,14 @@ public class Productprofile extends AppCompatActivity {
                             }
                         }).show();
 
+
+            }
+        });
+        buyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1=new Intent(Productprofile.this,ConfirmOrder.class);
+                startActivity(intent1);
 
             }
         });

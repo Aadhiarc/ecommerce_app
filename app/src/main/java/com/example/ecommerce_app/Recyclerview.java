@@ -56,7 +56,7 @@ public class Recyclerview extends AppCompatActivity implements recyclerViewInter
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchBar(newText);
+                //searchBar(newText);
                 return true;
             }
         });

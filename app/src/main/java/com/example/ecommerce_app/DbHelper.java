@@ -15,7 +15,18 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String COLUMN_MOBILE_NUMBER = "mobileNumber";
     public static final String COLUMN_ADDRESS = "address";
     public static final String COLUMN_CART = "cart";
+    public static final String BUY_TABLE_Buy = "buyTable";
+    public static final String USER_NAME_Buy = "user_name";
+    public static final String USER_EMAIL_Buy = "user_email";
+    public static final String USER_HOUSE_NO_Buy = "user_houseNo";
+    public static final String USER_ADDRESS_Buy = "user_address";
+    public static final String USER_PINCODE_Buy = "user_pincode";
+    public static final String USER_STATE_Buy = "user_state";
+    public static final String USER_PHONE_NUMBER_Buy = "user_phoneNumber";
+
     userModel userModel;
+    userDetailsBuyModel userDetailsBuyModel;
+
 
     public DbHelper(Context context) {
         super(context, "USER.DB", null, 1);
@@ -26,7 +37,7 @@ public class DbHelper extends SQLiteOpenHelper {
         String createTable = "CREATE TABLE " + TABLE_USER_DETAILS + "(" + COLUMN_ID + " integer primary key autoincrement  ," + COLUMN_USER_NAME + " text ," + COLUMN_EMAIL + " text ," + COLUMN_PASSWORD + " text ," + COLUMN_MOBILE_NUMBER + " text ," + COLUMN_ADDRESS + " text ," + COLUMN_CART + " text )";
         sqLiteDatabase.execSQL(createTable);
         sqLiteDatabase.execSQL("create table cartTable(email text,product_name text,product_price,product_thumbnail text,id integer primary key autoincrement)");
-        sqLiteDatabase.execSQL("create table buyTable(userName text,userEmail text,userPhoneNumber text,userAddress text)");
+        sqLiteDatabase.execSQL("create table " + BUY_TABLE_Buy + "(" + USER_NAME_Buy + " text," + USER_EMAIL_Buy + " text," + USER_HOUSE_NO_Buy + " text," + USER_ADDRESS_Buy + " text," + USER_PINCODE_Buy + " text," + USER_STATE_Buy + " text," + USER_PHONE_NUMBER_Buy + " text)");
     }
 
     @Override
@@ -54,5 +65,32 @@ public class DbHelper extends SQLiteOpenHelper {
 
         return userModel;
     }
+
+    //This method is used get the information product that user buy
+    public userDetailsBuyModel productDetails(String user_name, String user_Email,String user_houseNO,String user_address,String user_pinCode,String user_state,String user_phoneNumber ){
+        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(USER_NAME_Buy,user_name);
+        values.put(USER_EMAIL_Buy,user_Email);
+        values.put(USER_HOUSE_NO_Buy,user_houseNO);
+        values.put(USER_ADDRESS_Buy,user_address);
+        values.put(USER_PINCODE_Buy,user_pinCode);
+        values.put(USER_STATE_Buy,user_state);
+        values.put(USER_PHONE_NUMBER_Buy,user_phoneNumber);
+        sqLiteDatabase.insert(BUY_TABLE_Buy,null,values);
+        return userDetailsBuyModel;
+
+    }
+    //This method is used to get userDetails
+    public  userDetailsBuyModel orderDetails(String user_Email){
+        SQLiteDatabase sqLiteDatabase=this.getReadableDatabase();
+      Cursor cursor=  sqLiteDatabase.rawQuery("select * from "+BUY_TABLE_Buy+ " where "+ USER_EMAIL_Buy+ " =? ",new String[]{user_Email});
+        while (cursor.moveToNext()){
+            userDetailsBuyModel=new userDetailsBuyModel(cursor.getString(0),cursor.getString(1),cursor.getString(2), cursor.getString(3), cursor.getString(4),cursor.getString(5), cursor.getString(6) );
+        }
+        return userDetailsBuyModel;
+    }
+
+
 
 }
