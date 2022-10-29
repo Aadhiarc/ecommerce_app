@@ -3,6 +3,7 @@ package com.example.ecommerce_app;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,6 +18,8 @@ import android.widget.ListView;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 
+import soup.neumorphism.NeumorphButton;
+
 public class Addcart extends AppCompatActivity {
     ListView listView;
     DbHelper dbHelper;
@@ -24,7 +27,9 @@ public class Addcart extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     ArrayList<CartviewModel> cartviewModels;
     AlertDialog.Builder builder;
+    NeumorphButton proceedBuy;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +83,15 @@ public class Addcart extends AppCompatActivity {
                         }).show();
             }
         });
+        proceedBuy=findViewById(R.id.proceed_Buy_btn);
+        proceedBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1=new Intent(Addcart.this,ConfirmOrder.class);
+                startActivity(intent1);
+            }
+        });
+
     }
 
     @Override

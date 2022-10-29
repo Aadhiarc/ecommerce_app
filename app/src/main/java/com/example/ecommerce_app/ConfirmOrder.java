@@ -3,6 +3,7 @@ package com.example.ecommerce_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -31,10 +32,11 @@ public class ConfirmOrder extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(ConfirmOrder.this,Orderplaced.class);
                 dbHelper=new DbHelper(ConfirmOrder.this);
                 dbHelper.productDetails(userName.getText().toString(),userEmail.getText().toString(),userHouseNo.getText().toString(),userStreet.getText().toString(),userPincode.getText().toString(),userstate.getText().toString(),userPhoneNumber.getText().toString());
-                userDetailsBuyModel user = dbHelper.orderDetails(userEmail.getText().toString());
-                System.out.println(user.getUserEmail());
+                startActivity(intent);
+
             }
         });
 
