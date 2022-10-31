@@ -39,6 +39,29 @@
     <string name="product_profile_rating_tag">Rating :</string>
     <string name="product_profile_dicount_percentage_tag">Discount Percentage :</string>
     <string name="product_profile_stock_tag">Stock :</string>
+    <!--cartProducts  page-->
+    <string name="heading_cart_products">Cart products :</string>
+    <string name="proceed_to_buy_cart_products">Proceed to Buy</string>
+    <string name="header_change_password">Change Password</string>
+    <string name="user_name_tag_change_password">user Name :</string>
+    <string name="old_password_tag_change_password">old Password</string>
+    <!--changePassword  page-->
+    <string name="enter_old_password_editText_change_password">Enter old password</string>
+    <string name="create_new_password_tag_change_password">create new password</string>
+    <string name="create_a_new_password_editText_change_password">Create a new password</string>
+    <string name="change_password_Btn_change_password">change Password</string>
+    <string name="submit_hint_confirm_order">Submit</string>
+    <!--confirmOrder  page-->
+    <string name="phone_number_hint_confirm_order">Phone number</string>
+    <string name="state_hint_confirm_order">State</string>
+    <string name="pin_code_hint_confirm_order">pin-code</string>
+    <string name="street_name_hint_confirm_order">Street-name</string>
+    <string name="house_number_confirm_order">House Number</string>
+    <string name="confirm_Btn_orderedplaced">Confirm</string>
+    <string name="cancel_Btn_orderplaced">cancel</string>
+    <!--productDesign  page-->
+    <string name="productname_product_design">productName</string>
+    <string name="price_tag_product_design">price</string>
 
 
 </resources>

@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Cart products :"
+            android:text="@string/heading_cart_products"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="italic|bold" />
@@ -68,7 +68,7 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:text="Proceed to Buy"
+            android:text="@string/proceed_to_buy_cart_products"
             android:textSize="12dp"
             android:textStyle="bold|italic"
             app:neumorph_backgroundColor="@color/yellow"
